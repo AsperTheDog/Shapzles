@@ -1,0 +1,282 @@
+[gd_scene format=3 uid="uid://dvp4i5hgyjcke"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.083
+anchor_bottom = 0.131
+offset_right = 0.383995
+offset_bottom = 0.111992
+
+[node name="PanelContainer3" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.084
+anchor_right = 1.0
+anchor_bottom = 0.131
+offset_left = 0.231995
+offset_bottom = 0.111992
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/PanelContainer3"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=blue]1"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=blue]2"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Panel/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=blue]3"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Panel/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=blue]4"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Panel/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=blue]5"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Panel/PanelContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=blue]6"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.133
+anchor_right = 0.083
+anchor_bottom = 0.998
+offset_top = -0.183998
+offset_right = 0.383995
+offset_bottom = 1.29596
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/PanelContainer2"]
+layout_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="Panel/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+vertical = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/PanelContainer2/VBoxContainer/BoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=green]1"
+fit_content = true
+
+[node name="BoxContainer2" type="BoxContainer" parent="Panel/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+vertical = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/PanelContainer2/VBoxContainer/BoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=green]2"
+fit_content = true
+
+[node name="BoxContainer3" type="BoxContainer" parent="Panel/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+vertical = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/PanelContainer2/VBoxContainer/BoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=green]3"
+fit_content = true
+
+[node name="BoxContainer4" type="BoxContainer" parent="Panel/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+vertical = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/PanelContainer2/VBoxContainer/BoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center][color=green]4"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 101
+theme_override_constants/margin_top = 90
+
+[node name="ColorRect" type="GridContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+columns = 6
+
+[node name="ColorRect" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect2" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect3" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect4" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect5" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect6" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect7" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect8" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect9" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect10" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect11" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect12" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect13" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect14" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect15" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect16" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect17" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect18" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect19" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect20" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect21" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect22" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect23" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect24" type="ColorRect" parent="Panel/MarginContainer/ColorRect"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

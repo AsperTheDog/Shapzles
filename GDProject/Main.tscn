@@ -1,0 +1,201 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct8tdw87yo47l"]
+
+[ext_resource type="Texture2D" uid="uid://dfrkm7bxhru5q" path="res://iconmonstr-arrow-24.svg" id="1_m6od1"]
+[ext_resource type="Texture2D" uid="uid://dlq7miqbwmvyi" path="res://aaa.png" id="2_vxpyc"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+anchor_right = 0.623
+anchor_bottom = 0.998
+offset_top = 1.0
+offset_right = 0.303955
+offset_bottom = 0.295959
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_m6od1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center][color=green]A"
+
+[node name="TextureRect2" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_m6od1")
+ignore_texture_size = true
+stretch_mode = 0
+flip_v = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/MarginContainer/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_m6od1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center][color=blue]C"
+
+[node name="TextureRect2" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer/Panel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_m6od1")
+ignore_texture_size = true
+stretch_mode = 0
+flip_v = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
+
+[node name="Panel" type="Panel" parent="Panel/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/HBoxContainer/MarginContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/MarginContainer2/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer2/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_m6od1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/MarginContainer2/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center][color=green]4"
+
+[node name="TextureRect2" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer2/Panel/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_m6od1")
+ignore_texture_size = true
+stretch_mode = 0
+flip_v = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer/MarginContainer2/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer2/Panel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_m6od1")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/HBoxContainer/MarginContainer2/Panel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 100
+bbcode_enabled = true
+text = "[center][color=blue]7"
+
+[node name="TextureRect2" type="TextureButton" parent="Panel/HBoxContainer/MarginContainer2/Panel/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_m6od1")
+ignore_texture_size = true
+stretch_mode = 0
+flip_v = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.722
+anchor_top = 0.742
+anchor_right = 0.899
+anchor_bottom = 0.892
+offset_left = 0.25592
+offset_top = 0.18396
+offset_right = 0.351929
+offset_bottom = -0.0159912
+grow_horizontal = 2
+grow_vertical = 2
+text = "Confirm"
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.686
+anchor_top = 0.06
+anchor_right = 0.945
+anchor_bottom = 0.389
+offset_left = -0.272034
+offset_top = 0.119999
+offset_right = 0.359985
+offset_bottom = 8.92798
+texture = ExtResource("2_vxpyc")
+expand_mode = 1
