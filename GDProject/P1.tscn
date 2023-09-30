@@ -1,0 +1,215 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct8tdw87yo47l"]
+
+[ext_resource type="Texture2D" uid="uid://dfrkm7bxhru5q" path="res://iconmonstr-arrow-24.svg" id="1_m6od1"]
+[ext_resource type="Script" path="res://P1.gd" id="1_u6poy"]
+[ext_resource type="Texture2D" uid="uid://bmbqrwov330id" path="res://aaa.png" id="2_vxpyc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sutm2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts6ct"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[node name="P1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6poy")
+
+[node name="LetterDial" type="Button" parent="."]
+layout_mode = 2
+anchor_left = 0.025
+anchor_top = 0.045
+anchor_right = 0.321
+anchor_bottom = 0.958
+offset_left = 0.199999
+offset_top = -0.160002
+offset_right = 0.207977
+offset_bottom = 0.215942
+grow_vertical = 2
+size_flags_horizontal = 0
+focus_neighbor_left = NodePath("../NumberDial")
+focus_neighbor_right = NodePath("../NumberDial")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sutm2")
+disabled = true
+
+[node name="VerticalContainer" type="VBoxContainer" parent="LetterDial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LetterDial/VerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="TextureRect" type="TextureRect" parent="LetterDial/VerticalContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_m6od1")
+expand_mode = 1
+
+[node name="Dial" type="RichTextLabel" parent="LetterDial/VerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 140
+bbcode_enabled = true
+text = "[center]A"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="LetterDial/VerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="TextureRect" type="TextureRect" parent="LetterDial/VerticalContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_m6od1")
+expand_mode = 1
+flip_v = true
+
+[node name="NumberDial" type="Button" parent="."]
+layout_mode = 2
+anchor_left = 0.674
+anchor_top = 0.042
+anchor_right = 0.97
+anchor_bottom = 0.955
+offset_left = 0.552002
+offset_top = -0.216002
+offset_right = 0.559937
+offset_bottom = 0.159973
+grow_vertical = 2
+size_flags_horizontal = 0
+focus_neighbor_left = NodePath("../LetterDial")
+focus_neighbor_right = NodePath("../LetterDial")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ts6ct")
+disabled = true
+
+[node name="VerticalContainer" type="VBoxContainer" parent="NumberDial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NumberDial/VerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="TextureRect" type="TextureRect" parent="NumberDial/VerticalContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_m6od1")
+expand_mode = 1
+
+[node name="Dial" type="RichTextLabel" parent="NumberDial/VerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 140
+bbcode_enabled = true
+text = "[center]1"
+fit_content = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="NumberDial/VerticalContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="TextureRect" type="TextureRect" parent="NumberDial/VerticalContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_m6od1")
+expand_mode = 1
+flip_v = true
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.139
+anchor_right = 0.659
+anchor_bottom = 0.87
+offset_left = -0.223999
+offset_top = -0.0720062
+offset_right = -0.16803
+offset_bottom = 0.239929
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("2_vxpyc")
+expand_mode = 1
+
+[node name="CountdownBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.334
+anchor_top = 0.051
+anchor_right = 0.657
+anchor_bottom = 0.116
+offset_left = 0.231964
+offset_top = -0.0480003
+offset_right = 0.135986
+offset_bottom = -0.167999
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+show_percentage = false
+
+[node name="CountDown" type="RichTextLabel" parent="CountdownBar"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[center]5:00"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.336
+anchor_top = 0.847
+anchor_right = 0.659
+anchor_bottom = 0.909
+offset_left = -0.0720215
+offset_top = 0.143982
+offset_right = -0.16803
+offset_bottom = -0.0320435
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Press Start to confirm"

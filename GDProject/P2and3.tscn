@@ -1,0 +1,135 @@
+[gd_scene load_steps=3 format=3 uid="uid://mrd0eiiwbamr"]
+
+[ext_resource type="Texture2D" uid="uid://bmbqrwov330id" path="res://aaa.png" id="1_e26ji"]
+[ext_resource type="Script" path="res://P2and3.gd" id="1_lb61m"]
+
+[node name="P2_3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lb61m")
+
+[node name="CountdownBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.334
+anchor_top = 0.051
+anchor_right = 0.657
+anchor_bottom = 0.116
+offset_left = 6.23203
+offset_top = -19.048
+offset_right = 6.13605
+offset_bottom = -19.168
+grow_horizontal = 2
+value = 100.0
+show_percentage = false
+
+[node name="CountDown" type="RichTextLabel" parent="CountdownBar"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "[center]5:00"
+fit_content = true
+
+[node name="Symbols" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.147
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 57.744
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HorizContainer" type="HBoxContainer" parent="Symbols"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Symbol1" type="MarginContainer" parent="Symbols/HorizContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Symbols/HorizContainer/Symbol1"]
+layout_mode = 2
+alignment_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Symbols/HorizContainer/Symbol1/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("1_e26ji")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Symbols/HorizContainer/Symbol1"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]A"
+fit_content = true
+
+[node name="Symbol2" type="MarginContainer" parent="Symbols/HorizContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Symbols/HorizContainer/Symbol2"]
+layout_mode = 2
+alignment_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Symbols/HorizContainer/Symbol2/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("1_e26ji")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Symbols/HorizContainer/Symbol2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]B"
+fit_content = true
+
+[node name="Symbol3" type="MarginContainer" parent="Symbols/HorizContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Symbols/HorizContainer/Symbol3"]
+layout_mode = 2
+alignment_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Symbols/HorizContainer/Symbol3/AspectRatioContainer"]
+layout_mode = 2
+texture = ExtResource("1_e26ji")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Symbols/HorizContainer/Symbol3"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center]C"
+fit_content = true
