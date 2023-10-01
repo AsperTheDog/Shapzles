@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmbqrwov330id"
-path="res://.godot/imported/aaa.png-dfb20abf2628ea411afc50c775e75dcf.ctex"
+uid="uid://dqogmkrok7d1y"
+path="res://.godot/imported/PuzzleATRiangleFlipped.svg-78ebcdc210822f76b9f6f64080f96210.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://aaa.png"
-dest_files=["res://.godot/imported/aaa.png-dfb20abf2628ea411afc50c775e75dcf.ctex"]
+source_file="res://Symbols/PuzzleATRiangleFlipped.svg"
+dest_files=["res://.godot/imported/PuzzleATRiangleFlipped.svg-78ebcdc210822f76b9f6f64080f96210.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

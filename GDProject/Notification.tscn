@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://tqejvwjmwiyo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dy2jj"]
+bg_color = Color(0.12549, 0.12549, 0.12549, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="Notification" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.5
+offset_top = -90.0
+offset_right = 172.5
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dy2jj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]You ran out of time!"
+fit_content = true

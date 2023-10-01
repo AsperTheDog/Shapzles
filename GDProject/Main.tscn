@@ -18,6 +18,7 @@ position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
 
 [node name="P2" parent="P2" instance=ExtResource("2_ecb25")]
+player = 1
 
 [node name="P3" type="Window" parent="."]
 title = "Player 3"
@@ -25,3 +26,4 @@ position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
 
 [node name="P3" parent="P3" instance=ExtResource("2_ecb25")]
+player = 2

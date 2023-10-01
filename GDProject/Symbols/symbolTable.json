@@ -1,14 +1,27 @@
-[
-	{
-		"P1": {
-			"SymbolFile": "finalSymbolPuzzle1.png",
-			"P2SolutionIndex": 0,
-			"P3SolutionIndex": 2
-		},
-		"P2": ["Puzzle1Symbol1P2.png", "Puzzle1Symbol2P2.png", "Puzzle1Symbol3P2.png"],
-		"P3": ["Puzzle1Symbol1P3.png", "Puzzle1Symbol2P3.png", "Puzzle1Symbol3P3.png"]
-	},
-	{
+{
+	"level 1": [
+		{
+			"P1": {
+				"SymbolFile": "PuzzleASolution.svg",
+				"P2SolutionIndex": 0,
+				"P3SolutionIndex": 2
+			},
+			"P2": ["PuzzleACircle.svg", "PuzzleATriangle.svg", "PuzzleASquare.svg"],
+			"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleASquare.svg"]
+		}
+	],
+	"level 2": [
+		{
+			"P1": {
+				"SymbolFile": "PuzzleASquare.svg",
+				"P2SolutionIndex": 0,
+				"P3SolutionIndex": 0
+			},
+			"P2": ["PuzzleACircle.svg", "PuzzleACircle.svg", "PuzzleACircle.svg"],
+			"P3": ["PuzzleATriangle.svg", "PuzzleATriangle.svg", "PuzzleATriangle.svg"]
+		}
+	],
+	"level 3": [
 		
-	}
-]
+	]
+}
