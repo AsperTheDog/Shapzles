@@ -4,7 +4,7 @@
 			"P1": {
 				"SymbolFile": "PuzzleASolution.svg",
 				"P2SolutionIndex": 0,
-				"P3SolutionIndex": 2
+				"P3SolutionIndex": 0
 			},
 			"P2": ["PuzzleACircle.svg", "PuzzleATriangle.svg", "PuzzleASquare.svg"],
 			"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleASquare.svg"]
@@ -13,15 +13,34 @@
 	"level 2": [
 		{
 			"P1": {
-				"SymbolFile": "PuzzleASquare.svg",
+				"SymbolFile": "PuzzleASolution.svg",
 				"P2SolutionIndex": 0,
 				"P3SolutionIndex": 0
 			},
-			"P2": ["PuzzleACircle.svg", "PuzzleACircle.svg", "PuzzleACircle.svg"],
-			"P3": ["PuzzleATriangle.svg", "PuzzleATriangle.svg", "PuzzleATriangle.svg"]
+			"P2": ["PuzzleACircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg"],
+			"P3": ["PuzzleATriangle.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"]
 		}
 	],
 	"level 3": [
-		
+		{
+			"P1": {
+				"SymbolFile": "PuzzleDSolution.svg",
+				"P2SolutionIndex": 0,
+				"P3SolutionIndex": 0
+			},
+			"P2": ["PuzzleACircle.svg", "PuzzleDSmallCircle.svg", "PuzzleDOval.svg"],
+			"P3": ["PuzzleDTopLeftTriangle.svg", "PuzzleATriangle.svg", "PuzzleDPointyTriangle.svg"]
+		}
+	],
+	"level 4": [
+		{
+			"P1": {
+				"SymbolFile": "PuzzleFSolution.svg",
+				"P2SolutionIndex": 0,
+				"P3SolutionIndex": 0
+			},
+			"P2": ["PuzzleASquare.svg", "PuzzleFBottom2Square.svg", "PuzzleFRightDiagonal.svg"],
+			"P3": ["PuzzleBPlus.svg", "PuzzleFLeft2Square.svg", "PuzzleFWideRectangle.svg"]
+		}
 	]
 }
