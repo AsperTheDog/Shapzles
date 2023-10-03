@@ -35,9 +35,18 @@ func countdownTick(delta):
 
 
 func loadLevel():
+	print("\n")
 	var symbolFiles = Game.getSymbolFiles(player)
-	for idx in symbols.size():
-		symbols[idx].get_node("SymbolContainer/Symbol").texture = load(symbolFiles[idx])
+	var idxArr = range(symbols.size())
+	var symbolPos := 0
+	idxArr.shuffle()
+	var playerPos = 0 if player == Game.Player.P2 else 1
+	var origSolution = Game.solutionPosition[playerPos]
+	for idx in idxArr:
+		symbols[symbolPos].get_node("SymbolContainer/Symbol").texture = load(symbolFiles[idx])
+		if origSolution == idx:
+			Game.solutionPosition[playerPos] = symbolPos
+		symbolPos += 1
 
 
 func onGameLost():

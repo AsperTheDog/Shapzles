@@ -20,7 +20,8 @@ var countdownSeconds: int = 300
 var penaltyAmount: int = 0
 
 var symbolData: Dictionary = preload("res://Symbols/symbolTable.json").data
-		
+@onready var solutionPosition: Array[int]
+
 var currentPuzzle: int
 var currentLevel: int:
 	set(value):
@@ -31,6 +32,7 @@ var currentLevel: int:
 		if symbolData[currentLevel].size() != 0:
 			currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
 			maxSymbols = symbolData[currentLevel][currentPuzzle]['P2'].size()
+			solutionPosition = getDefaultSolution()
 			puzzleChanged.emit()
 
 var isGameRunning: bool = false:
@@ -61,6 +63,11 @@ func countdownTick(delta) -> void:
 	var seconds := int(remainingSeconds) % 60
 
 
+func getDefaultSolution() -> Array[int]:
+	return [symbolData[currentLevel][currentPuzzle]["P1"]["P2SolutionIndex"],
+			symbolData[currentLevel][currentPuzzle]["P1"]["P3SolutionIndex"]]
+
+
 func getStringFromCountdown() -> String:
 	var mins := int(remainingSeconds) / 60
 	var seconds := int(remainingSeconds) % 60
@@ -81,11 +88,6 @@ func getSymbolFiles(player: Player) -> Array[String]:
 	for i in fileArray.size():
 		fileArray[i] = "res://Symbols/" + fileArray[i]
 	return fileArray
-
-
-func getCorrectSolution() -> Array[int]:
-	return [symbolData[currentLevel][currentPuzzle]["P1"]["P2SolutionIndex"],
-			symbolData[currentLevel][currentPuzzle]["P1"]["P3SolutionIndex"]]
 
 
 func requestNextLevel():

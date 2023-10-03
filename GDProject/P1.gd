@@ -64,8 +64,7 @@ func loadLevel():
 
 
 func isSolutionCorrect():
-	var solutions = Game.getCorrectSolution()
-	return selectedP2 == solutions[0] and selectedP3 == solutions[1]
+	return selectedP2 == Game.solutionPosition[0] and selectedP3 == Game.solutionPosition[1]
 
 
 func onGameLost():
