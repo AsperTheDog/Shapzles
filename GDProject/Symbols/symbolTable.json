@@ -1,5 +1,5 @@
 {
-	"level 1": [
+	"1": [
 		{
 			"P1": {
 				"SymbolFile": "PuzzleASolution.svg",
@@ -10,7 +10,7 @@
 			"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleASquare.svg"]
 		}
 	],
-	"level 2": [
+	"2": [
 		{
 			"P1": {
 				"SymbolFile": "PuzzleASolution.svg",
@@ -21,7 +21,7 @@
 			"P3": ["PuzzleATriangle.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"]
 		}
 	],
-	"level 3": [
+	"3": [
 		{
 			"P1": {
 				"SymbolFile": "PuzzleDSolution.svg",
@@ -32,7 +32,7 @@
 			"P3": ["PuzzleDTopLeftTriangle.svg", "PuzzleATriangle.svg", "PuzzleDPointyTriangle.svg"]
 		}
 	],
-	"level 4": [
+	"4": [
 		{
 			"P1": {
 				"SymbolFile": "PuzzleFSolution.svg",

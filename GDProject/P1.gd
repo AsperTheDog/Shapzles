@@ -8,7 +8,7 @@ var selectedP3: int = 0
 
 func _ready():
 	$NotificationLayer.hide()
-	$MainLayer/LetterDial.grab_focus()
+	recoverFocus()
 	$MainLayer/LetterDial/VerticalContainer/Dial.set_meta("player", Game.Player.P2)
 	$MainLayer/NumberDial/VerticalContainer/Dial.set_meta("player", Game.Player.P3)
 	$MainLayer/CountdownBar.max_value = Game.countdownSeconds
@@ -16,6 +16,7 @@ func _ready():
 	loadLevel()
 	Game.puzzleChanged.connect(loadLevel)
 	Game.timeEnded.connect(onGameLost)
+	Game.gameRunStateChanged.connect(onGameRunStateChanged)
 
 
 func _process(delta):
@@ -69,3 +70,11 @@ func isSolutionCorrect():
 
 func onGameLost():
 	$NotificationLayer.show()
+
+
+func onGameRunStateChanged(value: bool):
+	$MainLayer/SolutionContainer/SolutionTexture.visible = value
+
+
+func recoverFocus():
+	$MainLayer/LetterDial.grab_focus()

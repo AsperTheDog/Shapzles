@@ -17,6 +17,7 @@ func _ready():
 	loadLevel()
 	Game.puzzleChanged.connect(loadLevel)
 	Game.timeEnded.connect(onGameLost)
+	Game.gameRunStateChanged.connect(onGameRunStateChanged)
 
 
 func assignLabels(lst: Array[String]):
@@ -41,3 +42,9 @@ func loadLevel():
 
 func onGameLost():
 	$NotificationLayer.show()
+
+
+func onGameRunStateChanged(value: bool):
+	$MainLayer/Symbols/HorizContainer/Symbol1/SymbolContainer/Symbol.visible = value
+	$MainLayer/Symbols/HorizContainer/Symbol2/SymbolContainer/Symbol.visible = value
+	$MainLayer/Symbols/HorizContainer/Symbol3/SymbolContainer/Symbol.visible = value

@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://vvs7yyuia6n8"]
+[gd_scene load_steps=4 format=3 uid="uid://vvs7yyuia6n8"]
 
+[ext_resource type="Script" path="res://Main.gd" id="1_c4wjq"]
 [ext_resource type="PackedScene" uid="uid://ct8tdw87yo47l" path="res://P1.tscn" id="1_lnst7"]
 [ext_resource type="PackedScene" uid="uid://mrd0eiiwbamr" path="res://P2and3.tscn" id="2_ecb25"]
 
-[node name="Main" type="Node"]
+[node name="Node" type="Node"]
+script = ExtResource("1_c4wjq")
 
 [node name="P1" type="Window" parent="."]
 title = "Player 1"
@@ -27,3 +29,51 @@ size = Vector2i(1920, 1080)
 
 [node name="P3" parent="P3" instance=ExtResource("2_ecb25")]
 player = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Reset" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.02
+anchor_right = 0.126
+anchor_bottom = 0.113
+offset_left = -0.128
+offset_top = 0.039999
+offset_right = -0.152008
+offset_bottom = -0.224007
+text = "Reset"
+
+[node name="ToggleGame" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.127
+anchor_right = 0.126
+anchor_bottom = 0.219
+offset_left = -0.128
+offset_top = -0.296005
+offset_right = -0.152008
+offset_bottom = 0.0879974
+text = "Start/Pause"
+
+[node name="Info" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 15.0
+offset_right = 660.0
+offset_bottom = 142.0
+bbcode_enabled = true
+text = "[b]Current level:[/b] 1
+[b]Game:[/b] running
+[b]Counter:[/b] 5:00"
+
+[connection signal="pressed" from="Control/Reset" to="." method="_on_reset_pressed"]
+[connection signal="pressed" from="Control/ToggleGame" to="." method="_on_toggle_game_pressed"]

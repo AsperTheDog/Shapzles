@@ -3,6 +3,8 @@ extends Node
 signal puzzleChanged
 signal timeEnded
 
+signal gameRunStateChanged(runState: bool)
+
 enum Player {
 	P1,
 	P2,
@@ -20,22 +22,28 @@ var penaltyAmount: int = 0
 var symbolData: Dictionary = preload("res://Symbols/symbolTable.json").data
 		
 var currentPuzzle: int
-var currentLevel: String:
+var currentLevel: int:
 	set(value):
 		if currentLevel == value: return
 		currentLevel = value
-		if not currentLevel in symbolData: return
+		if not currentLevel in symbolData: 
+			reset()
 		if symbolData[currentLevel].size() != 0:
 			currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
 			maxSymbols = symbolData[currentLevel][currentPuzzle]['P2'].size()
 			puzzleChanged.emit()
 
-var isGameRunning: bool = false
+var isGameRunning: bool = false:
+	set(value):
+		isGameRunning = value
+		gameRunStateChanged.emit(value)
 
 
 func _ready():
-	currentLevel = "level 1"
-	isGameRunning = true
+	for elem in symbolData.keys():
+		symbolData[int(elem)] = symbolData[elem]
+		symbolData.erase(elem)
+	currentLevel = 1
 
 
 func _process(delta):
@@ -81,9 +89,7 @@ func getCorrectSolution() -> Array[int]:
 
 
 func requestNextLevel():
-	var regex = RegEx.new()
-	regex.compile("level (?<digit>\\d)")
-	var nextLevel = "level " + str(int(regex.search(currentLevel).get_string("digit")) + 1)
+	var nextLevel = currentLevel + 1
 	currentLevel = nextLevel
 
 
@@ -91,3 +97,13 @@ func penalizeTimer(amount: int):
 	remainingSeconds = max(0, remainingSeconds - amount)
 	penaltyAmount = amount
 	get_tree().create_timer(3).timeout.connect(func(): penaltyAmount = 0)
+
+
+func reset():
+	currentLevel = 1
+	remainingSeconds = countdownSeconds
+	isGameRunning = false
+
+
+func toggleGame():
+	isGameRunning = not isGameRunning

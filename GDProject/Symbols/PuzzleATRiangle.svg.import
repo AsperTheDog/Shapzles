@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csockfvu181sb"
-path="res://.godot/imported/PuzzleATRiangle.svg-5f390b4d582ea7f849c32e723877252f.ctex"
+path="res://.godot/imported/PuzzleATriangle.svg-b251a30e89655a40ee04a582310e6e1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Symbols/PuzzleATRiangle.svg"
-dest_files=["res://.godot/imported/PuzzleATRiangle.svg-5f390b4d582ea7f849c32e723877252f.ctex"]
+source_file="res://Symbols/PuzzleATriangle.svg"
+dest_files=["res://.godot/imported/PuzzleATriangle.svg-b251a30e89655a40ee04a582310e6e1d.ctex"]
 
 [params]
 
