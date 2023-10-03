@@ -40,7 +40,13 @@ func _process(delta):
 
 func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:
 	var lst = Game.letters if player == Game.Player.P2 else Game.numbers
-	var newIdx = clamp(lst.find(label.text.lstrip("[center]")) + dir, 0, Game.maxSymbols - 1)
+	#var newIdx = clamp(lst.find(label.text.lstrip("[center]")) + dir, 0, Game.maxSymbols - 1)
+	var newIdx = lst.find(label.text.lstrip("[center]")) + dir
+	if(newIdx < 0):
+		newIdx = Game.maxSymbols - 1
+	elif(newIdx > Game.maxSymbols - 1):
+		newIdx = 0
+	
 	label.text = "[center]" + lst[newIdx]
 	match player:
 		Game.Player.P2: selectedP2 = newIdx
