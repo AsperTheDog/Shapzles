@@ -96,13 +96,24 @@ func requestNextLevel():
 func wrongGuess():
 	currentHealth -= 1
 	print("Remaining health: %d" % currentHealth)
+	showHearts()
 	if currentHealth <= 0:
 		reset()
+
+func showHearts():
+	'''
+	var hearts = $MainLayer/HeartContainer.get_children()
+	for heart in hearts:
+		heart.hide()
+	for i in currentHealth:
+		hearts[i].show()
+	'''
 
 func reset():
 	currentLevel = 1
 	remainingSeconds = countdownSeconds
 	currentHealth = maxHealth
+	showHearts()
 	isGameRunning = false
 
 
