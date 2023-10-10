@@ -17,7 +17,6 @@ var numbers: Array[String] = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 var countdownSeconds: int = 300
 @onready var remainingSeconds = countdownSeconds
-var penaltyAmount: int = 0
 
 var symbolData: Dictionary = preload("res://Symbols/symbolTable.json").data
 @onready var solutionPosition: Array[int]
@@ -72,8 +71,6 @@ func getStringFromCountdown() -> String:
 	var mins := int(remainingSeconds) / 60
 	var seconds := int(remainingSeconds) % 60
 	var newText = ("%02d" % mins) + ":" + ("%02d" % seconds)
-	if penaltyAmount != 0:
-		newText += "[color=red] -" + str(penaltyAmount)
 	return newText
 
 
@@ -93,12 +90,6 @@ func getSymbolFiles(player: Player) -> Array[String]:
 func requestNextLevel():
 	var nextLevel = currentLevel + 1
 	currentLevel = nextLevel
-
-
-func penalizeTimer(amount: int):
-	remainingSeconds = max(0, remainingSeconds - amount)
-	penaltyAmount = amount
-	get_tree().create_timer(3).timeout.connect(func(): penaltyAmount = 0)
 
 
 func reset():

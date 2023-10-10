@@ -1,8 +1,6 @@
 extends Control
 
 
-@export var failPenaltySeconds: int = 30
-
 var selectedP2: int = 0
 var selectedP3: int = 0
 
@@ -36,7 +34,6 @@ func _process(delta):
 			Game.requestNextLevel()
 		else:
 			print("YOU FUCKING DONKEY")
-			Game.penalizeTimer(failPenaltySeconds)
 
 
 func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:
