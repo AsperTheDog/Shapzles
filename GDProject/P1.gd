@@ -35,6 +35,7 @@ func _process(delta):
 		else:
 			print("YOU FUCKING DONKEY")
 			Game.wrongGuess()
+			showHearts()
 
 
 func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:
@@ -75,3 +76,11 @@ func onGameRunStateChanged(value: bool):
 
 func recoverFocus():
 	$MainLayer/LetterDial.grab_focus()
+
+
+func showHearts():
+	var hearts = $MainLayer/HeartContainer.get_children()
+	for heart in hearts:
+		heart.hide()
+	for i in Game.currentHealth:
+		hearts[i].show()
