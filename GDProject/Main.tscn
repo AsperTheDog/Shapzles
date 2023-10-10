@@ -73,7 +73,8 @@ offset_bottom = 142.0
 bbcode_enabled = true
 text = "[b]Current level:[/b] 1
 [b]Game:[/b] running
-[b]Counter:[/b] 5:00"
+[b]Counter:[/b] 5:00
+[b]Current Health:[/b] 3"
 
 [connection signal="pressed" from="Control/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/ToggleGame" to="." method="_on_toggle_game_pressed"]

@@ -6,10 +6,11 @@ func _ready():
 
 
 func _process(_delta):
-	$Control/Info.text = "[b]Current level:[/b] %d\n[b]Game:[/b] %s\n[b]Counter:[/b] %s" % [
+	$Control/Info.text = "[b]Current level:[/b] %d\n[b]Game:[/b] %s\n[b]Counter:[/b] %s\n[b]Current Health: [/b] %d" % [
 		Game.currentLevel,
 		"Running" if Game.isGameRunning else "Paused",
-		Game.getStringFromCountdown()
+		Game.getStringFromCountdown(),
+		Game.currentHealth
 		]
 
 

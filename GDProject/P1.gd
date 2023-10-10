@@ -34,6 +34,7 @@ func _process(delta):
 			Game.requestNextLevel()
 		else:
 			print("YOU FUCKING DONKEY")
+			Game.wrongGuess()
 
 
 func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:

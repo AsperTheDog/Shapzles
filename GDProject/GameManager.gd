@@ -15,6 +15,8 @@ var maxSymbols: int = 6
 var letters: Array[String] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
 var numbers: Array[String] = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
+var maxHealth: int = 3
+var currentHealth: int = maxHealth
 var countdownSeconds: int = 300
 @onready var remainingSeconds = countdownSeconds
 
@@ -91,10 +93,16 @@ func requestNextLevel():
 	var nextLevel = currentLevel + 1
 	currentLevel = nextLevel
 
+func wrongGuess():
+	currentHealth -= 1
+	print("Remaining health: %d" % currentHealth)
+	if currentHealth <= 0:
+		reset()
 
 func reset():
 	currentLevel = 1
 	remainingSeconds = countdownSeconds
+	currentHealth = maxHealth
 	isGameRunning = false
 
 
