@@ -1,11 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://vvs7yyuia6n8"]
+[gd_scene load_steps=8 format=3 uid="uid://vvs7yyuia6n8"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_c4wjq"]
 [ext_resource type="PackedScene" uid="uid://ct8tdw87yo47l" path="res://P1.tscn" id="1_lnst7"]
 [ext_resource type="PackedScene" uid="uid://mrd0eiiwbamr" path="res://P2and3.tscn" id="2_ecb25"]
 
+[sub_resource type="Gradient" id="Gradient_wq0g2"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.898258, 0.829317, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_42m8f"]
+color = Color(0.6, 0.6, 0.6, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p14sg"]
+content_margin_left = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhgu7"]
+content_margin_left = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Node" type="Node"]
 script = ExtResource("1_c4wjq")
+timeBarGradient = SubResource("Gradient_wq0g2")
 
 [node name="P1" type="Window" parent="."]
 title = "Player 1"
@@ -49,6 +66,7 @@ offset_left = -0.128
 offset_top = 0.039999
 offset_right = -0.152008
 offset_bottom = -0.224007
+focus_mode = 0
 text = "Reset"
 
 [node name="ToggleGame" type="Button" parent="Control"]
@@ -62,6 +80,7 @@ offset_left = -0.128
 offset_top = -0.296005
 offset_right = -0.152008
 offset_bottom = 0.0879974
+focus_mode = 0
 text = "Start/Pause"
 
 [node name="Info" type="RichTextLabel" parent="Control"]
@@ -75,6 +94,154 @@ text = "[b]Current level:[/b] 1
 [b]Game:[/b] running
 [b]Counter:[/b] 5:00
 [b]Current Health:[/b] 3"
+
+[node name="Logs" type="PanelContainer" parent="Control"]
+layout_mode = 2
+offset_top = 185.0
+offset_right = 1150.0
+offset_bottom = 645.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MainContainer" type="VBoxContainer" parent="Control/Logs"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Titles" type="HBoxContainer" parent="Control/Logs/MainContainer"]
+layout_mode = 2
+
+[node name="Label5" type="RichTextLabel" parent="Control/Logs/MainContainer/Titles"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Number"
+fit_content = true
+
+[node name="Label6" type="RichTextLabel" parent="Control/Logs/MainContainer/Titles"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Difficulty"
+fit_content = true
+
+[node name="Label" type="RichTextLabel" parent="Control/Logs/MainContainer/Titles"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Index"
+fit_content = true
+
+[node name="Label2" type="RichTextLabel" parent="Control/Logs/MainContainer/Titles"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Time"
+fit_content = true
+
+[node name="Label3" type="RichTextLabel" parent="Control/Logs/MainContainer/Titles"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Errors"
+fit_content = true
+
+[node name="Label4" type="RichTextLabel" parent="Control/Logs/MainContainer/Titles"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "Completed"
+fit_content = true
+
+[node name="MainSeparator" type="HSeparator" parent="Control/Logs/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_42m8f")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/Logs/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Logs/MainContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="placeholder" type="HBoxContainer" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="number" type="RichTextLabel" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer/placeholder"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_p14sg")
+bbcode_enabled = true
+text = "1"
+fit_content = true
+
+[node name="diff" type="RichTextLabel" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer/placeholder"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_p14sg")
+bbcode_enabled = true
+text = "1"
+fit_content = true
+
+[node name="index" type="RichTextLabel" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer/placeholder"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_p14sg")
+bbcode_enabled = true
+text = "O2"
+fit_content = true
+
+[node name="time" type="RichTextLabel" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer/placeholder"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhgu7")
+bbcode_enabled = true
+text = "02:41"
+fit_content = true
+
+[node name="bar" type="ColorRect" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer/placeholder/time"]
+z_index = -1
+layout_mode = 0
+offset_right = 189.0
+offset_bottom = 26.0
+color = Color(0, 1, 0.133333, 1)
+
+[node name="errors" type="RichTextLabel" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer/placeholder"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_p14sg")
+bbcode_enabled = true
+text = "2"
+fit_content = true
+
+[node name="completed" type="RichTextLabel" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer/placeholder"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_p14sg")
+bbcode_enabled = true
+text = "yes"
+fit_content = true
+
+[node name="placeholderSeparator" type="HSeparator" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
 
 [connection signal="pressed" from="Control/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/ToggleGame" to="." method="_on_toggle_game_pressed"]

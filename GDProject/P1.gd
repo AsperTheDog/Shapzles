@@ -15,6 +15,7 @@ func _ready():
 	Game.puzzleChanged.connect(loadLevel)
 	Game.timeEnded.connect(onGameLost)
 	Game.gameRunStateChanged.connect(onGameRunStateChanged)
+	Game.resetCalled.connect(reset)
 
 
 func _process(delta):
@@ -53,7 +54,7 @@ func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:
 		Game.Player.P3: selectedP3 = newIdx
 
 
-func countdownTick(delta):
+func countdownTick(_delta):
 	$MainLayer/CountdownBar/CountDown.text = "[center]" + Game.getStringFromCountdown()
 	$MainLayer/CountdownBar.value = Game.remainingSeconds
 
@@ -84,3 +85,8 @@ func showHearts():
 		heart.hide()
 	for i in Game.currentHealth:
 		hearts[i].show()
+
+
+func reset():
+	$NotificationLayer.hide()
+	showHearts()

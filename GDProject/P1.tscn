@@ -232,23 +232,21 @@ scale = Vector2(0.18983, 0.18983)
 fill_mode = 4
 texture_progress = SubResource("AtlasTexture_thlnk")
 
-[node name="HeartContainer" type="GridContainer" parent="MainLayer"]
+[node name="HeartContainer" type="HBoxContainer" parent="MainLayer"]
 layout_direction = 2
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.323
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 0.673
 anchor_bottom = 1.0
-offset_left = -80.0
+offset_left = -0.0960083
 offset_top = -55.0
-offset_right = 80.0
+offset_right = -0.296021
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/h_separation = 5
-theme_override_constants/v_separation = 5
-columns = 3
+alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MainLayer/HeartContainer"]
 layout_mode = 2

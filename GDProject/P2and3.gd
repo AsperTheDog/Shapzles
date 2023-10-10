@@ -18,6 +18,7 @@ func _ready():
 	Game.puzzleChanged.connect(loadLevel)
 	Game.timeEnded.connect(onGameLost)
 	Game.gameRunStateChanged.connect(onGameRunStateChanged)
+	Game.resetCalled.connect(reset)
 
 
 func assignLabels(lst: Array[String]):
@@ -29,13 +30,12 @@ func _process(delta):
 	countdownTick(delta)
 
 
-func countdownTick(delta):
+func countdownTick(_delta):
 	$MainLayer/CountdownBar/CountDown.text = "[center]" + Game.getStringFromCountdown()
 	$MainLayer/CountdownBar.value = Game.remainingSeconds
 
 
 func loadLevel():
-	print("\n")
 	var symbolFiles = Game.getSymbolFiles(player)
 	var idxArr = range(symbols.size())
 	var symbolPos := 0
@@ -57,3 +57,7 @@ func onGameRunStateChanged(value: bool):
 	$MainLayer/Symbols/HorizContainer/Symbol1/SymbolContainer/Symbol.visible = value
 	$MainLayer/Symbols/HorizContainer/Symbol2/SymbolContainer/Symbol.visible = value
 	$MainLayer/Symbols/HorizContainer/Symbol3/SymbolContainer/Symbol.visible = value
+
+
+func reset():
+	$NotificationLayer.hide()

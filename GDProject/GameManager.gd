@@ -2,6 +2,7 @@ extends Node
 
 signal puzzleChanged
 signal timeEnded
+signal resetCalled
 
 signal gameRunStateChanged(runState: bool)
 
@@ -18,7 +19,7 @@ var numbers: Array[String] = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 var maxHealth: int = 3
 var currentHealth: int = maxHealth
 var countdownSeconds: int = 300
-@onready var remainingSeconds = countdownSeconds
+@onready var remainingSeconds: float = float(countdownSeconds)
 
 var symbolData: Dictionary = preload("res://Symbols/symbolTable.json").data
 @onready var solutionPosition: Array[int]
@@ -26,15 +27,16 @@ var symbolData: Dictionary = preload("res://Symbols/symbolTable.json").data
 var currentPuzzle: int
 var currentLevel: int:
 	set(value):
-		if currentLevel == value: return
 		currentLevel = value
 		if not currentLevel in symbolData: 
-			reset()
-		if symbolData[currentLevel].size() != 0:
+			isGameRunning = false
+		elif symbolData[currentLevel].size() != 0:
 			currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
 			maxSymbols = symbolData[currentLevel][currentPuzzle]['P2'].size()
 			solutionPosition = getDefaultSolution()
 			puzzleChanged.emit()
+			Logger.addPuzzle(symbolData[currentLevel][currentPuzzle]['index'], currentLevel)
+
 
 var isGameRunning: bool = false:
 	set(value):
@@ -60,8 +62,6 @@ func countdownTick(delta) -> void:
 		isGameRunning = false
 		timeEnded.emit()
 		return
-	var mins := int(remainingSeconds) / 60
-	var seconds := int(remainingSeconds) % 60
 
 
 func getDefaultSolution() -> Array[int]:
@@ -72,7 +72,7 @@ func getDefaultSolution() -> Array[int]:
 func getStringFromCountdown() -> String:
 	var mins := int(remainingSeconds) / 60
 	var seconds := int(remainingSeconds) % 60
-	var newText = ("%02d" % mins) + ":" + ("%02d" % seconds)
+	var newText := ("%02d" % mins) + ":" + ("%02d" % seconds)
 	return newText
 
 
@@ -95,18 +95,26 @@ func requestNextLevel():
 
 
 func wrongGuess():
+	Logger.registerError()
 	currentHealth -= 1
 	print("Remaining health: %d" % currentHealth)
 	if currentHealth <= 0:
-		reset()
+		isGameRunning = false
 
 
 func reset():
-	currentLevel = 1
+	print("--------- GAME RESET ---------")
 	remainingSeconds = countdownSeconds
 	currentHealth = maxHealth
 	isGameRunning = false
+	Logger.clear()
+	currentLevel = 1
+	resetCalled.emit()
 
 
 func toggleGame():
 	isGameRunning = not isGameRunning
+
+
+func getCurrentTime() -> float:
+	return Game.countdownSeconds - Game.remainingSeconds
