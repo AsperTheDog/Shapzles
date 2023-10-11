@@ -1,5 +1,7 @@
 extends Node
 
+signal levelWon
+
 signal puzzleChanged
 signal timeEnded
 signal resetCalled
@@ -18,7 +20,7 @@ var numbers: Array[String] = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 var maxHealth: int = 3
 var currentHealth: int = maxHealth
-var countdownSeconds: int = 300
+var countdownSeconds: int = 5 * 60
 @onready var remainingSeconds: float = float(countdownSeconds)
 
 var symbolData: Dictionary = preload("res://Symbols/symbolTable.json").data
@@ -28,14 +30,18 @@ var currentPuzzle: int
 var currentLevel: int:
 	set(value):
 		currentLevel = value
-		if not currentLevel in symbolData: 
-			isGameRunning = false
+		isGameRunning = false
+		if not currentLevel in symbolData:
+			levelWon.emit()
+			gameWon = true
 		elif symbolData[currentLevel].size() != 0:
 			currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
 			maxSymbols = symbolData[currentLevel][currentPuzzle]['P2'].size()
 			solutionPosition = getDefaultSolution()
 			puzzleChanged.emit()
 			Logger.addPuzzle(symbolData[currentLevel][currentPuzzle]['index'], currentLevel)
+
+var gameWon: bool = false
 
 
 var isGameRunning: bool = false:
@@ -118,3 +124,11 @@ func toggleGame():
 
 func getCurrentTime() -> float:
 	return Game.countdownSeconds - Game.remainingSeconds
+
+
+func getLastLevel() -> int:
+	return int(symbolData.keys().back())
+
+
+func getScore() -> int:
+	return int(ceil((currentLevel - 1) / float(symbolData.size()) * 100))

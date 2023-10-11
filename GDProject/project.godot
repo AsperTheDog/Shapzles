@@ -22,6 +22,7 @@ Logger="*res://Scripts/Logger.gd"
 
 [display]
 
+window/size/resizable=false
 window/subwindows/embed_subwindows=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"

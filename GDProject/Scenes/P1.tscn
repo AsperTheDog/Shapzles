@@ -262,6 +262,19 @@ texture = ExtResource("4_njyl5")
 
 [node name="NotificationLayer" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
-[node name="Notification" parent="NotificationLayer" instance=ExtResource("5_gxi6r")]
+[node name="LostNotif" parent="NotificationLayer" instance=ExtResource("5_gxi6r")]
+visible = false
+text = "You ran out of time!"
+
+[node name="WinNotif" parent="NotificationLayer" instance=ExtResource("5_gxi6r")]
+visible = false
+text = "You won!"
+
+[node name="NextNotif" parent="NotificationLayer" instance=ExtResource("5_gxi6r")]
+visible = false
+text = "Correct!"
+
+[node name="WrongNotif" parent="NotificationLayer" instance=ExtResource("5_gxi6r")]
+visible = false
+text = "Wrong answer! You lost a heart"

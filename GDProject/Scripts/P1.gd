@@ -4,8 +4,11 @@ extends Control
 var selectedP2: int = 0
 var selectedP3: int = 0
 
+var nextNotifShown: bool = false
+var wrongNotifShown: bool = false
+
+
 func _ready():
-	$NotificationLayer.hide()
 	recoverFocus()
 	$MainLayer/LetterDial/VerticalContainer/Dial.set_meta("player", Game.Player.P2)
 	$MainLayer/NumberDial/VerticalContainer/Dial.set_meta("player", Game.Player.P3)
@@ -16,10 +19,21 @@ func _ready():
 	Game.timeEnded.connect(onGameLost)
 	Game.gameRunStateChanged.connect(onGameRunStateChanged)
 	Game.resetCalled.connect(reset)
+	Game.levelWon.connect(onGameWon)
 
 
 func _process(delta):
 	countdownTick(delta)
+	if Input.is_action_just_pressed("Confirm"):
+		if nextNotifShown:
+			$NotificationLayer/NextNotif.hide()
+			nextNotifShown = false
+			Game.isGameRunning = true
+			return
+		elif wrongNotifShown:
+			$NotificationLayer/WrongNotif.hide()
+			wrongNotifShown = false
+			return
 	if not Game.isGameRunning:
 		if get_viewport().gui_get_focus_owner() != null:
 			get_viewport().gui_get_focus_owner().release_focus()
@@ -33,10 +47,15 @@ func _process(delta):
 		if isSolutionCorrect():
 			print("CORRECT")
 			Game.requestNextLevel()
+			if not Game.gameWon:
+				$NotificationLayer/NextNotif.show()
+				nextNotifShown = true
 		else:
 			print("YOU FUCKING DONKEY")
 			Game.wrongGuess()
 			showHearts()
+			$NotificationLayer/WrongNotif.show()
+			wrongNotifShown = true
 
 
 func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:
@@ -68,11 +87,21 @@ func isSolutionCorrect():
 
 
 func onGameLost():
-	$NotificationLayer.show()
+	var score: int = Game.getScore()
+	$NotificationLayer/LostNotif.changeText("You ran out of time! Score: " + str(score))
+	$NotificationLayer/LostNotif.show()
+
+
+func onGameWon():
+	var score: int = Game.getScore()
+	$NotificationLayer/WinNotif.changeText("You won! Score: " + str(score))
+	$NotificationLayer/WinNotif.show()
 
 
 func onGameRunStateChanged(value: bool):
 	$MainLayer/SolutionContainer/SolutionTexture.visible = value
+	if value:
+		recoverFocus()
 
 
 func recoverFocus():
@@ -88,5 +117,8 @@ func showHearts():
 
 
 func reset():
-	$NotificationLayer.hide()
+	$NotificationLayer/LostNotif.hide()
+	$NotificationLayer/WinNotif.hide()
+	$NotificationLayer/NextNotif.hide()
+	$NotificationLayer/WrongNotif.hide()
 	showHearts()
