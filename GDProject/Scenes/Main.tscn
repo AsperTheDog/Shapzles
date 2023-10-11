@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://vvs7yyuia6n8"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_c4wjq"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_6gg47"]
 [ext_resource type="PackedScene" uid="uid://ct8tdw87yo47l" path="res://P1.tscn" id="1_lnst7"]
 [ext_resource type="PackedScene" uid="uid://mrd0eiiwbamr" path="res://P2and3.tscn" id="2_ecb25"]
 
@@ -21,7 +21,7 @@ content_margin_left = 5.0
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Node" type="Node"]
-script = ExtResource("1_c4wjq")
+script = ExtResource("1_6gg47")
 timeBarGradient = SubResource("Gradient_wq0g2")
 
 [node name="P1" type="Window" parent="."]

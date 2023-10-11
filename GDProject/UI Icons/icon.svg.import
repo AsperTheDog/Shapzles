@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfrkm7bxhru5q"
-path="res://.godot/imported/iconmonstr-arrow-24.svg-be21938ddc90dd3fcdecf26aa128373f.ctex"
+uid="uid://coyr00sg67x33"
+path="res://.godot/imported/icon.svg-51393c07e7b36df4c5f2c2530e27d58f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://iconmonstr-arrow-24.svg"
-dest_files=["res://.godot/imported/iconmonstr-arrow-24.svg-be21938ddc90dd3fcdecf26aa128373f.ctex"]
+source_file="res://UI Icons/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-51393c07e7b36df4c5f2c2530e27d58f.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,6 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=100.0
+svg/scale=1.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false

@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Shapzles"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Scenes/Main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://UI Icons/icon.svg"
 
 [autoload]
 
-Game="*res://GameManager.gd"
-Logger="*res://Logger.gd"
+Game="*res://Scripts/GameManager.gd"
+Logger="*res://Scripts/Logger.gd"
 
 [display]
 

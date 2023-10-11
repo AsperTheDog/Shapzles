@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mrd0eiiwbamr"]
 
-[ext_resource type="Script" path="res://P2and3.gd" id="1_lb61m"]
-[ext_resource type="PackedScene" uid="uid://tqejvwjmwiyo" path="res://Notification.tscn" id="2_0o2kg"]
+[ext_resource type="Script" path="res://Scripts/P2and3.gd" id="1_1wwjj"]
+[ext_resource type="PackedScene" uid="uid://tqejvwjmwiyo" path="res://Scenes/Notification.tscn" id="2_tu4vi"]
 
 [node name="P2_3" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_lb61m")
+script = ExtResource("1_1wwjj")
 
 [node name="MainLayer" type="CanvasLayer" parent="."]
 
@@ -136,4 +136,4 @@ fit_content = true
 layer = 10
 visible = false
 
-[node name="Notification" parent="NotificationLayer" instance=ExtResource("2_0o2kg")]
+[node name="Notification" parent="NotificationLayer" instance=ExtResource("2_tu4vi")]

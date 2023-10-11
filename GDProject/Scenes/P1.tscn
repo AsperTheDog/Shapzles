@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://ct8tdw87yo47l"]
 
-[ext_resource type="Texture2D" uid="uid://dfrkm7bxhru5q" path="res://iconmonstr-arrow-24.svg" id="1_m6od1"]
-[ext_resource type="Script" path="res://P1.gd" id="1_u6poy"]
-[ext_resource type="Texture2D" uid="uid://dcr5u2uqe2l4i" path="res://Symbols/UI-Map.png" id="3_7b3cb"]
-[ext_resource type="PackedScene" uid="uid://tqejvwjmwiyo" path="res://Notification.tscn" id="4_hb1rn"]
-[ext_resource type="Texture2D" uid="uid://cyisu4mxvdefl" path="res://Heart.svg" id="4_vl14x"]
+[ext_resource type="Script" path="res://Scripts/P1.gd" id="1_2py76"]
+[ext_resource type="Texture2D" uid="uid://dfrkm7bxhru5q" path="res://UI Icons/iconmonstr-arrow-24.svg" id="2_hixht"]
+[ext_resource type="Texture2D" uid="uid://dcr5u2uqe2l4i" path="res://Symbols/UI-Map.png" id="3_fbyto"]
+[ext_resource type="Texture2D" uid="uid://cyisu4mxvdefl" path="res://UI Icons/Heart.svg" id="4_njyl5"]
+[ext_resource type="PackedScene" uid="uid://tqejvwjmwiyo" path="res://Scenes/Notification.tscn" id="5_gxi6r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sutm2"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -25,7 +25,7 @@ border_color = Color(1, 1, 1, 1)
 border_blend = true
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_thlnk"]
-atlas = ExtResource("3_7b3cb")
+atlas = ExtResource("3_fbyto")
 region = Rect2(768, 227, 199, 199)
 
 [node name="P1" type="Control"]
@@ -35,7 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_u6poy")
+script = ExtResource("1_2py76")
 
 [node name="MainLayer" type="CanvasLayer" parent="."]
 
@@ -73,7 +73,7 @@ theme_override_constants/margin_right = 30
 [node name="TextureRect" type="TextureRect" parent="MainLayer/LetterDial/VerticalContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_m6od1")
+texture = ExtResource("2_hixht")
 expand_mode = 1
 
 [node name="Dial" type="RichTextLabel" parent="MainLayer/LetterDial/VerticalContainer"]
@@ -93,7 +93,7 @@ theme_override_constants/margin_right = 30
 [node name="TextureRect" type="TextureRect" parent="MainLayer/LetterDial/VerticalContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_m6od1")
+texture = ExtResource("2_hixht")
 expand_mode = 1
 flip_v = true
 
@@ -131,7 +131,7 @@ theme_override_constants/margin_right = 30
 [node name="TextureRect" type="TextureRect" parent="MainLayer/NumberDial/VerticalContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_m6od1")
+texture = ExtResource("2_hixht")
 expand_mode = 1
 
 [node name="Dial" type="RichTextLabel" parent="MainLayer/NumberDial/VerticalContainer"]
@@ -151,7 +151,7 @@ theme_override_constants/margin_right = 30
 [node name="TextureRect" type="TextureRect" parent="MainLayer/NumberDial/VerticalContainer/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("1_m6od1")
+texture = ExtResource("2_hixht")
 expand_mode = 1
 flip_v = true
 
@@ -250,18 +250,18 @@ alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MainLayer/HeartContainer"]
 layout_mode = 2
-texture = ExtResource("4_vl14x")
+texture = ExtResource("4_njyl5")
 
 [node name="TextureRect2" type="TextureRect" parent="MainLayer/HeartContainer"]
 layout_mode = 2
-texture = ExtResource("4_vl14x")
+texture = ExtResource("4_njyl5")
 
 [node name="TextureRect3" type="TextureRect" parent="MainLayer/HeartContainer"]
 layout_mode = 2
-texture = ExtResource("4_vl14x")
+texture = ExtResource("4_njyl5")
 
 [node name="NotificationLayer" type="CanvasLayer" parent="."]
 layer = 10
 visible = false
 
-[node name="Notification" parent="NotificationLayer" instance=ExtResource("4_hb1rn")]
+[node name="Notification" parent="NotificationLayer" instance=ExtResource("5_gxi6r")]
