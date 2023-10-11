@@ -24,7 +24,7 @@ var currentHealth: int = maxHealth
 var countdownSeconds: int = 0.4 * 60
 @onready var remainingSeconds: float = float(countdownSeconds)
 
-var gameData: Dictionary = preload("res://Symbols/symbolTable.json").data
+var gameData: Dictionary = preload("res://symbolTable.json").data
 var symbolData: Dictionary = gameData['puzzles']
 var progressData: Array[int] = []
 var progress: int = 0
