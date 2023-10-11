@@ -43,7 +43,6 @@ var currentLevel: int:
 			while currentPuzzle in puzzlesDone[currentLevel]:
 				currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
 			puzzlesDone[currentLevel].append(currentPuzzle)
-			print(puzzlesDone)
 			maxSymbols = symbolData[currentLevel][currentPuzzle]['P2'].size()
 			solutionPosition = getDefaultSolution()
 			puzzleChanged.emit()
