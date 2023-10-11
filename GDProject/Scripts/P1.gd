@@ -19,7 +19,7 @@ func _ready():
 	Game.timeEnded.connect(onGameLost)
 	Game.gameRunStateChanged.connect(onGameRunStateChanged)
 	Game.resetCalled.connect(reset)
-	Game.levelWon.connect(onGameWon)
+	Game.gameWon.connect(onGameWon)
 
 
 func _process(delta):
@@ -47,15 +47,20 @@ func _process(delta):
 		if isSolutionCorrect():
 			print("CORRECT")
 			Game.requestNextLevel()
-			if not Game.gameWon:
+			if not Game.isGameWon:
 				$NotificationLayer/NextNotif.show()
 				nextNotifShown = true
 		else:
 			print("YOU FUCKING DONKEY")
 			Game.wrongGuess()
 			showHearts()
-			$NotificationLayer/WrongNotif.show()
-			wrongNotifShown = true
+			if Game.currentHealth == 0:
+				var score: int = Game.getScore()
+				$NotificationLayer/LostNotif.changeText("You lost! Score: " + str(score))
+				$NotificationLayer/LostNotif.show()
+			else:
+				$NotificationLayer/WrongNotif.show()
+				wrongNotifShown = true
 
 
 func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:

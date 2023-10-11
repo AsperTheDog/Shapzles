@@ -1,6 +1,6 @@
 extends Node
 
-signal levelWon
+signal gameWon
 
 signal puzzleChanged
 signal timeEnded
@@ -15,15 +15,20 @@ enum Player {
 }
 
 var maxSymbols: int = 6
+
 var letters: Array[String] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I']
 var numbers: Array[String] = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 var maxHealth: int = 3
 var currentHealth: int = maxHealth
-var countdownSeconds: int = 5 * 60
+var countdownSeconds: int = 0.4 * 60
 @onready var remainingSeconds: float = float(countdownSeconds)
 
-var symbolData: Dictionary = preload("res://Symbols/symbolTable.json").data
+var gameData: Dictionary = preload("res://Symbols/symbolTable.json").data
+var symbolData: Dictionary = gameData['puzzles']
+var progressData: Array[int] = []
+var progress: int = 0
+var puzzlesDone: Dictionary = {}
 @onready var solutionPosition: Array[int]
 
 var currentPuzzle: int
@@ -32,16 +37,19 @@ var currentLevel: int:
 		currentLevel = value
 		isGameRunning = false
 		if not currentLevel in symbolData:
-			levelWon.emit()
-			gameWon = true
+			gameWon.emit()
+			isGameWon = true
 		elif symbolData[currentLevel].size() != 0:
-			currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
+			while currentPuzzle in puzzlesDone[currentLevel]:
+				currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
+			puzzlesDone[currentLevel].append(currentPuzzle)
+			print(puzzlesDone)
 			maxSymbols = symbolData[currentLevel][currentPuzzle]['P2'].size()
 			solutionPosition = getDefaultSolution()
 			puzzleChanged.emit()
 			Logger.addPuzzle(symbolData[currentLevel][currentPuzzle]['index'], currentLevel)
 
-var gameWon: bool = false
+var isGameWon: bool = false
 
 
 var isGameRunning: bool = false:
@@ -51,10 +59,12 @@ var isGameRunning: bool = false:
 
 
 func _ready():
+	progressData.assign(gameData['progress'])
 	for elem in symbolData.keys():
 		symbolData[int(elem)] = symbolData[elem]
 		symbolData.erase(elem)
-	currentLevel = 1
+		puzzlesDone[int(elem)] = []
+	currentLevel = progressData[progress]
 
 
 func _process(delta):
@@ -96,8 +106,13 @@ func getSymbolFiles(player: Player) -> Array[String]:
 
 
 func requestNextLevel():
-	var nextLevel = currentLevel + 1
-	currentLevel = nextLevel
+	progress += 1
+	if progress >= progressData.size():
+		isGameWon = true
+		gameWon.emit()
+		isGameRunning = false
+		return
+	currentLevel = progressData[progress]
 
 
 func wrongGuess():
@@ -126,9 +141,5 @@ func getCurrentTime() -> float:
 	return Game.countdownSeconds - Game.remainingSeconds
 
 
-func getLastLevel() -> int:
-	return int(symbolData.keys().back())
-
-
 func getScore() -> int:
-	return int(ceil((currentLevel - 1) / float(symbolData.size()) * 100))
+	return int(ceil(progress / float(progressData.size()) * 100))
