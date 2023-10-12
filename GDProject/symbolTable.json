@@ -189,6 +189,16 @@
 				"P2": ["PuzzleRPointyUpNCircle.svg", "PuzzleRCircle.svg", "PuzzleRMouthNCircle.svg", "PuzzleRMouthNPointyDown.svg", "PuzzleRCircleNPointyIn.svg"],
 				"P3": ["PuzzleRMouth.svg", "PuzzleRMouthNEyes.svg", "PuzzleRLines.svg", "PuzzleRMouthNCircleAbove.svg", "PuzzleREyesNPointy.svg"],
 				"index": "R"
+			},
+			{
+				"P1": {
+					"SymbolFile": "PuzzleSSolution.svg",
+					"P2SolutionIndex": 0,
+					"P3SolutionIndex": 0
+				},
+				"P2": ["PuzzleSNr1.svg", "PuzzleSNr2.svg", "PuzzleSNr3.svg", "PuzzleSNr4.svg", "PuzzleSNr5.svg"],
+				"P3": ["PuzzleSNrA.svg", "PuzzleSNrB.svg", "PuzzleSNrC.svg", "PuzzleSNrD.svg", "PuzzleSNrE.svg"],
+				"index": "S"
 			}
 		]
 	}
