@@ -42,6 +42,7 @@ var currentLevel: int:
 			isGameWon = true
 			Logger.completePuzzle()
 		elif symbolData[currentLevel].size() != 0:
+			currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
 			while currentPuzzle in puzzlesDone[currentLevel]:
 				currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
 			puzzlesDone[currentLevel].append(currentPuzzle)

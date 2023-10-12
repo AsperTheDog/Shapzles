@@ -51,7 +51,6 @@ func updateLogTable():
 		row.get_node("time/bar").color = timeBarGradient.sample(timePercentage)
 
 
-
 func emptyLogTable():
 	for child in logContainer.get_children().filter(func(elem): return not elem.name.contains("placeholder")):
 		child.free()
