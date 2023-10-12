@@ -104,14 +104,18 @@ func getSymbolFiles(player: Player) -> Array[String]:
 	return fileArray
 
 
-func requestNextLevel():
-	progress += 1
+func requestLevel(level: int):
+	progress = level
 	if progress >= progressData.size():
 		isGameWon = true
 		gameWon.emit()
 		isGameRunning = false
 		return
 	currentLevel = progressData[progress]
+
+
+func requestNextLevel():
+	requestLevel(progress + 1)
 
 
 func wrongGuess():
@@ -127,9 +131,13 @@ func reset():
 	remainingSeconds = countdownSeconds
 	currentHealth = maxHealth
 	isGameRunning = false
+	isGameWon = false
 	Logger.clear()
-	currentLevel = 1
+	for elem in symbolData.keys():
+		puzzlesDone[int(elem)] = []
+	requestLevel(0)
 	resetCalled.emit()
+	
 
 
 func toggleGame():

@@ -45,27 +45,32 @@ func _process(delta):
 		onDialChanged(focused, focused.get_meta("player"), 1)
 	elif Input.is_action_just_pressed("Confirm"):
 		if isSolutionCorrect():
-			print("CORRECT")
-			Game.requestNextLevel()
-			if not Game.isGameWon:
-				$NotificationLayer/NextNotif.show()
-				nextNotifShown = true
+			onLevelCompleted()
 		else:
 			print("YOU FUCKING DONKEY")
 			Game.wrongGuess()
 			showHearts()
 			if Game.currentHealth == 0:
 				var score: int = Game.getScore()
+				hideNotifications()
 				$NotificationLayer/LostNotif.changeText("You lost! Score: " + str(score))
 				$NotificationLayer/LostNotif.show()
 			else:
+				hideNotifications()
 				$NotificationLayer/WrongNotif.show()
 				wrongNotifShown = true
 
 
+func forceDial(label: RichTextLabel, player: Game.Player, value: int):
+	var lst = Game.letters if player == Game.Player.P2 else Game.numbers
+	label.text = "[center]" + lst[value]
+	match player:
+		Game.Player.P2: selectedP2 = value
+		Game.Player.P3: selectedP3 = value
+
+
 func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:
 	var lst = Game.letters if player == Game.Player.P2 else Game.numbers
-	#var newIdx = clamp(lst.find(label.text.lstrip("[center]")) + dir, 0, Game.maxSymbols - 1)
 	var newIdx = lst.find(label.text.lstrip("[center]")) + dir
 	if(newIdx < 0):
 		newIdx = Game.maxSymbols - 1
@@ -84,6 +89,8 @@ func countdownTick(_delta):
 
 
 func loadLevel():
+	forceDial($MainLayer/LetterDial/VerticalContainer/Dial, Game.Player.P2, 0)
+	forceDial($MainLayer/NumberDial/VerticalContainer/Dial, Game.Player.P3, 0)
 	$MainLayer/SolutionContainer/SolutionTexture.texture = load(Game.getSymbolFiles(Game.Player.P1)[0])
 
 
@@ -93,14 +100,25 @@ func isSolutionCorrect():
 
 func onGameLost():
 	var score: int = Game.getScore()
+	hideNotifications()
 	$NotificationLayer/LostNotif.changeText("You ran out of time! Score: " + str(score))
 	$NotificationLayer/LostNotif.show()
 
 
 func onGameWon():
 	var score: int = Game.getScore()
+	hideNotifications()
 	$NotificationLayer/WinNotif.changeText("You won! Score: " + str(score))
 	$NotificationLayer/WinNotif.show()
+
+
+func onLevelCompleted():
+	print("CORRECT")
+	Game.requestNextLevel()
+	if not Game.isGameWon:
+		hideNotifications()
+		$NotificationLayer/NextNotif.show()
+		nextNotifShown = true
 
 
 func onGameRunStateChanged(value: bool):
@@ -121,9 +139,16 @@ func showHearts():
 		hearts[i].show()
 
 
-func reset():
+func hideNotifications():
 	$NotificationLayer/LostNotif.hide()
 	$NotificationLayer/WinNotif.hide()
 	$NotificationLayer/NextNotif.hide()
+	nextNotifShown = false
 	$NotificationLayer/WrongNotif.hide()
+	wrongNotifShown = false
+	
+
+
+func reset():
+	hideNotifications()
 	showHearts()

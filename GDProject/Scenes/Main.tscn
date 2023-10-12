@@ -61,11 +61,11 @@ anchors_preset = -1
 anchor_left = 0.014
 anchor_top = 0.02
 anchor_right = 0.126
-anchor_bottom = 0.113
+anchor_bottom = 0.085
 offset_left = -0.128
 offset_top = 0.039999
 offset_right = -0.152008
-offset_bottom = -0.224007
+offset_bottom = -0.0800018
 focus_mode = 0
 text = "Reset"
 
@@ -73,15 +73,29 @@ text = "Reset"
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.014
-anchor_top = 0.127
+anchor_top = 0.096
 anchor_right = 0.126
-anchor_bottom = 0.219
+anchor_bottom = 0.16
 offset_left = -0.128
-offset_top = -0.296005
+offset_top = -0.208
 offset_right = -0.152008
-offset_bottom = 0.0879974
+offset_bottom = 0.319992
 focus_mode = 0
 text = "Start/Pause"
+
+[node name="SolvePuzzle" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.014
+anchor_top = 0.096
+anchor_right = 0.126
+anchor_bottom = 0.16
+offset_left = -0.128
+offset_top = 48.792
+offset_right = -0.152008
+offset_bottom = 49.32
+focus_mode = 0
+text = "Solve Current"
 
 [node name="Info" type="RichTextLabel" parent="Control"]
 layout_mode = 0
@@ -245,3 +259,4 @@ layout_mode = 2
 
 [connection signal="pressed" from="Control/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/ToggleGame" to="." method="_on_toggle_game_pressed"]
+[connection signal="pressed" from="Control/SolvePuzzle" to="." method="_on_solve_puzzle_pressed"]

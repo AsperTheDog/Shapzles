@@ -49,7 +49,7 @@ func updateLogTable():
 		var timePercentage: float = puzzle.getTime() / maxValue if maxValue != 0.0 else 1.0
 		row.get_node("time/bar").size.x = timeBarSize * timePercentage
 		row.get_node("time/bar").color = timeBarGradient.sample(timePercentage)
-		
+
 
 
 func emptyLogTable():
@@ -66,3 +66,7 @@ func _on_reset_pressed() -> void:
 func _on_toggle_game_pressed() -> void:
 	Game.toggleGame()
 	$P1/P1.recoverFocus()
+
+
+func _on_solve_puzzle_pressed() -> void:
+	$P1/P1.onLevelCompleted()
