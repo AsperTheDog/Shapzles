@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://mrd0eiiwbamr"]
+[gd_scene load_steps=5 format=3 uid="uid://mrd0eiiwbamr"]
 
 [ext_resource type="Script" path="res://Scripts/P2and3.gd" id="1_1wwjj"]
+[ext_resource type="Texture2D" uid="uid://3wu6i1dn3v37" path="res://Symbols/PuzzleACircle.svg" id="2_s6a5q"]
 [ext_resource type="PackedScene" uid="uid://tqejvwjmwiyo" path="res://Scenes/Notification.tscn" id="2_tu4vi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcmaq"]
+bg_color = Color(0.231373, 0.231373, 0.231373, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="P2_3" type="Control"]
 layout_mode = 3
@@ -45,92 +58,220 @@ fit_content = true
 
 [node name="Symbols" type="Control" parent="MainLayer"]
 layout_mode = 3
-anchor_top = 0.147
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 57.744
+anchor_left = 0.009
+anchor_top = 0.145
+anchor_right = 0.99
+anchor_bottom = 0.971
+offset_left = -0.368001
+offset_top = 0.0399933
+offset_right = 0.519897
+offset_bottom = -0.208069
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HorizContainer" type="HBoxContainer" parent="MainLayer/Symbols"]
+[node name="HorizContainer" type="GridContainer" parent="MainLayer/Symbols"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+columns = 3
 
-[node name="Symbol1" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer"]
+[node name="Symbol1" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
 
-[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol1"]
+[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol1"]
 layout_mode = 2
-alignment_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
 
-[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol1/SymbolContainer"]
+[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol1/Margin"]
 layout_mode = 2
-expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol1"]
+[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol1/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "[center]A"
 fit_content = true
 
-[node name="Symbol2" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer"]
+[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol1/Margin/VBox"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol2"]
-layout_mode = 2
+size_flags_vertical = 3
 alignment_vertical = 2
 
-[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol2/SymbolContainer"]
+[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol1/Margin/VBox/SymbolContainer"]
 layout_mode = 2
+texture = ExtResource("2_s6a5q")
 expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol2"]
+[node name="Symbol2" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
+
+[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol2/Margin"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol2/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "[center]B"
 fit_content = true
 
-[node name="Symbol3" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer"]
+[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol2/Margin/VBox"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol3"]
-layout_mode = 2
+size_flags_vertical = 3
 alignment_vertical = 2
 
-[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol3/SymbolContainer"]
+[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol2/Margin/VBox/SymbolContainer"]
 layout_mode = 2
 expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol3"]
+[node name="Symbol3" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
+
+[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol3/Margin"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol3/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "[center]C"
 fit_content = true
+
+[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol3/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment_vertical = 2
+
+[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol3/Margin/VBox/SymbolContainer"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Symbol4" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
+
+[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol4/Margin"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol4/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]D"
+fit_content = true
+
+[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol4/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment_vertical = 2
+
+[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol4/Margin/VBox/SymbolContainer"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Symbol5" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
+
+[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol5/Margin"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol5/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]E"
+fit_content = true
+
+[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol5/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment_vertical = 2
+
+[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol5/Margin/VBox/SymbolContainer"]
+layout_mode = 2
+expand_mode = 1
+
+[node name="Symbol6" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
+
+[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol6/Margin"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol6/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 60
+bbcode_enabled = true
+text = "[center]F"
+fit_content = true
+
+[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol6/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment_vertical = 2
+
+[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol6/Margin/VBox/SymbolContainer"]
+layout_mode = 2
+expand_mode = 1
 
 [node name="NotificationLayer" type="CanvasLayer" parent="."]
 layer = 10
