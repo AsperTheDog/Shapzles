@@ -34,11 +34,13 @@ var puzzlesDone: Dictionary = {}
 var currentPuzzle: int
 var currentLevel: int:
 	set(value):
+		var prevLevel = currentLevel
 		currentLevel = value
 		isGameRunning = false
 		if not currentLevel in symbolData:
 			gameWon.emit()
 			isGameWon = true
+			Logger.completePuzzle()
 		elif symbolData[currentLevel].size() != 0:
 			while currentPuzzle in puzzlesDone[currentLevel]:
 				currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
@@ -110,6 +112,7 @@ func requestLevel(level: int):
 		isGameWon = true
 		gameWon.emit()
 		isGameRunning = false
+		Logger.completePuzzle()
 		return
 	currentLevel = progressData[progress]
 
