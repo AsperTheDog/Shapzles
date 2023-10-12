@@ -145,6 +145,16 @@
 				"P2": ["PuzzleMEyeDot.svg", "PuzzleMEyeLine.svg", "PuzzleMEyeSlit.svg", "PuzzleM6Triangles.svg", "PuzzleM4Triangles2Down.svg", "PuzzleM4Triangles1Down.svg"],
 				"P3": ["PuzzleMEyeDot.svg", "PuzzleMEyeLine.svg", "PuzzleMEyeSlit.svg", "PuzzleM6Lines.svg", "PuzzleM4Lines.svg", "PuzzleM4Lines1Down.svg"],
 				"index": "M"
+			},
+			{
+				"P1": {
+					"SymbolFile": "PuzzleJSolution.svg",
+					"P2SolutionIndex": 2,
+					"P3SolutionIndex": 0
+				},
+				"P2": ["PuzzleJUmberella.svg", "PuzzleJBox.svg", "PuzzleJBird.svg"],
+				"P3": ["PuzzleJLine.svg", "PuzzleJTable.svg", "PuzzleJY.svg"],
+				"index": "J"
 			}
 		],
 		"4": [
@@ -169,6 +179,16 @@
 				"P2": ["PuzzleNLego.svg", "PuzzleNTriangleLNSquare.svg", "PuzzleNTriangleRNSquare.svg"],
 				"P3": ["PuzzleNTriangleDNSquare.svg", "PuzzleNRectangle.svg", "PuzzleNTriangle.svg"],
 				"index": "N"
+			},
+			{
+				"P1": {
+					"SymbolFile": "PuzzleRSolution.svg",
+					"P2SolutionIndex": 0,
+					"P3SolutionIndex": 0
+				},
+				"P2": ["PuzzleRPointyUpNCircle.svg", "PuzzleRCircle.svg", "PuzzleRMouthNCircle.svg", "PuzzleRMouthNPointyDown.svg", "PuzzleRCircleNPointyIn.svg"],
+				"P3": ["PuzzleRMouth.svg", "PuzzleRMouthNEyes.svg", "PuzzleRLines.svg", "PuzzleRMouthNCircleAbove.svg", "PuzzleREyesNPointy.svg"],
+				"index": "R"
 			}
 		]
 	}
