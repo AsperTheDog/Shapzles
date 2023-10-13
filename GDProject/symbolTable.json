@@ -138,16 +138,6 @@
 			},
 			{
 				"P1": {
-					"SymbolFile": "PuzzleMSolution.svg",
-					"P2SolutionIndex": 2,
-					"P3SolutionIndex": 3
-				},
-				"P2": ["PuzzleMEyeDot.svg", "PuzzleMEyeLine.svg", "PuzzleMEyeSlit.svg", "PuzzleM6Triangles.svg", "PuzzleM4Triangles2Down.svg", "PuzzleM4Triangles1Down.svg"],
-				"P3": ["PuzzleMEyeDot.svg", "PuzzleMEyeLine.svg", "PuzzleMEyeSlit.svg", "PuzzleM6Lines.svg", "PuzzleM4Lines.svg", "PuzzleM4Lines1Down.svg"],
-				"index": "M"
-			},
-			{
-				"P1": {
 					"SymbolFile": "PuzzleJSolution.svg",
 					"P2SolutionIndex": 2,
 					"P3SolutionIndex": 0
@@ -158,6 +148,16 @@
 			}
 		],
 		"4": [
+			{
+				"P1": {
+					"SymbolFile": "PuzzleMSolution.svg",
+					"P2SolutionIndex": 2,
+					"P3SolutionIndex": 3
+				},
+				"P2": ["PuzzleMEyeDot.svg", "PuzzleMEyeLine.svg", "PuzzleMEyeSlit.svg", "PuzzleM6Triangles.svg", "PuzzleM4Triangles2Down.svg", "PuzzleM4Triangles1Down.svg"],
+				"P3": ["PuzzleMEyeDot.svg", "PuzzleMEyeLine.svg", "PuzzleMEyeSlit.svg", "PuzzleM6Lines.svg", "PuzzleM4Lines.svg", "PuzzleM4Lines1Down.svg"],
+				"index": "M"
+			},
 			{
 				"P1": {
 					"SymbolFile": "PuzzleQSolution.svg",
