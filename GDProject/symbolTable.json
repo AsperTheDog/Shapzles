@@ -45,12 +45,12 @@
 			{
 				"P1": {
 					"SymbolFile": "PuzzleO2Solution.svg",
-					"P2SolutionIndex": 0,
-					"P3SolutionIndex": 1
+					"P2SolutionIndex": 1,
+					"P3SolutionIndex": 0
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleDSmallCircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg"],
 				"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
-				"index": "O2"
+				"index": "O3"
 			}
 		],
 		"2": [
@@ -122,19 +122,19 @@
 					"P2SolutionIndex": 0,
 					"P3SolutionIndex": 0
 				},
-				"P2": ["PuzzleGRightNMiddle.svg", "PuzzleGTopRightNMiddle.svg", "PuzzleDTopLeftNBottomRight.svg"],
+				"P2": ["PuzzleGRightNMiddle.svg", "PuzzleGTopRightNMiddle.svg", "PuzzleGTopLeftNBottomRight.svg"],
 				"P3": ["PuzzleGLeft.svg", "PuzzleGRightNTopLeft.svg", "PuzzleGRightDiagonal.svg"],
 				"index": "G"
 			},
 			{
 				"P1": {
 					"SymbolFile": "PuzzleISolution.svg",
-					"P2SolutionIndex": 2,
+					"P2SolutionIndex": 0,
 					"P3SolutionIndex": 0
 				},
 				"P2": ["PuzzleINormalS.svg", "PuzzleIOutsideS.svg", "PuzzleIInsideS.svg"],
 				"P3": ["PuzzleISwirlyLine.svg", "PuzzleINormalLine.svg", "PuzzleIZigLine.svg"],
-				"index": "I"
+				"index": "I2"
 			},
 			{
 				"P1": {
