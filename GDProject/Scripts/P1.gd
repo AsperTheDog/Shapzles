@@ -1,11 +1,12 @@
 extends Control
 
-
 var selectedP2: int = 0
 var selectedP3: int = 0
 
 var nextNotifShown: bool = false
 var wrongNotifShown: bool = false
+
+var blinkTween: Tween
 
 
 func _ready():
@@ -20,6 +21,9 @@ func _ready():
 	Game.gameRunStateChanged.connect(onGameRunStateChanged)
 	Game.resetCalled.connect(reset)
 	Game.gameWon.connect(onGameWon)
+	blinkTween = create_tween().set_loops()
+	blinkTween.tween_callback(blinkProgressBar)
+	blinkTween.tween_interval(0.5)
 
 
 func _process(delta):
@@ -88,6 +92,17 @@ func countdownTick(_delta):
 	$MainLayer/CountdownBar.value = Game.remainingSeconds
 
 
+func blinkProgressBar():
+	print("BLINK")
+	if Game.remainingSeconds > 60 or not Game.isGameRunning: 
+		$MainLayer/CountdownBar.self_modulate = Color.WHITE
+		return
+	elif $MainLayer/CountdownBar.self_modulate == Color.WHITE:
+		$MainLayer/CountdownBar.self_modulate = Game.progressAlertColor
+	else:
+		$MainLayer/CountdownBar.self_modulate = Color.WHITE
+
+
 func loadLevel():
 	forceDial($MainLayer/LetterDial/VerticalContainer/Dial, Game.Player.P2, 0)
 	forceDial($MainLayer/NumberDial/VerticalContainer/Dial, Game.Player.P3, 0)
@@ -122,6 +137,11 @@ func onLevelCompleted():
 
 
 func onGameRunStateChanged(value: bool):
+	if not value:
+		blinkProgressBar()
+		blinkTween.pause()
+	else:
+		blinkTween.play()
 	$MainLayer/SolutionContainer/SolutionTexture.visible = value
 	if value:
 		recoverFocus()

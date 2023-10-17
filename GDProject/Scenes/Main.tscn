@@ -23,6 +23,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="Node" type="Node"]
 script = ExtResource("1_6gg47")
 timeBarGradient = SubResource("Gradient_wq0g2")
+progressAlertColor = Color(1, 0.368627, 0.301961, 1)
 
 [node name="P1" type="Window" parent="."]
 title = "Player 1"

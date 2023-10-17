@@ -1,6 +1,5 @@
 extends Control
 
-
 @export var player: Game.Player
 
 @onready var symbols: Array[PanelContainer] = [
@@ -19,6 +18,8 @@ var symbolLayouts: Dictionary = {
 	6: 3
 }
 
+var blinkTween: Tween
+
 
 func _ready():
 	$NotificationLayer.hide()
@@ -28,8 +29,11 @@ func _ready():
 	loadLevel()
 	Game.puzzleChanged.connect(loadLevel)
 	Game.timeEnded.connect(onGameLost)
-	Game.gameRunStateChanged.connect(setSymbolsVisibility)
+	Game.gameRunStateChanged.connect(onGameRunStateChanged)
 	Game.resetCalled.connect(reset)
+	blinkTween = create_tween().set_loops()
+	blinkTween.tween_callback(blinkProgressBar)
+	blinkTween.tween_interval(0.5)
 
 
 func assignLabels(lst: Array[String]):
@@ -44,6 +48,17 @@ func _process(delta):
 func countdownTick(_delta):
 	$MainLayer/CountdownBar/CountDown.text = "[center]" + Game.getStringFromCountdown()
 	$MainLayer/CountdownBar.value = Game.remainingSeconds
+
+
+func blinkProgressBar():
+	print("BLINK")
+	if Game.remainingSeconds > 60 or not Game.isGameRunning: 
+		$MainLayer/CountdownBar.self_modulate = Color.WHITE
+		return
+	elif $MainLayer/CountdownBar.self_modulate == Color.WHITE:
+		$MainLayer/CountdownBar.self_modulate = Game.progressAlertColor
+	else:
+		$MainLayer/CountdownBar.self_modulate = Color.WHITE
 
 
 func loadLevel():
@@ -72,7 +87,12 @@ func setPanelsVisibility(areVibisle: bool):
 		symbol.visible = areVibisle
 
 
-func setSymbolsVisibility(value: bool):
+func onGameRunStateChanged(value: bool):
+	if not value:
+		blinkProgressBar()
+		blinkTween.pause()
+	else:
+		blinkTween.play()
 	for symbol in symbols:
 		symbol.get_node("Margin/VBox/SymbolContainer/Symbol").visible = value
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct8tdw87yo47l"]
+[gd_scene load_steps=8 format=3 uid="uid://ct8tdw87yo47l"]
 
 [ext_resource type="Script" path="res://Scripts/P1.gd" id="1_2py76"]
 [ext_resource type="Texture2D" uid="uid://dfrkm7bxhru5q" path="res://UI Icons/iconmonstr-arrow-24.svg" id="2_hixht"]
-[ext_resource type="Texture2D" uid="uid://dcr5u2uqe2l4i" path="res://Symbols/UI-Map.png" id="3_fbyto"]
 [ext_resource type="Texture2D" uid="uid://cyisu4mxvdefl" path="res://UI Icons/Heart.svg" id="4_njyl5"]
+[ext_resource type="Texture2D" uid="uid://3wu6i1dn3v37" path="res://Symbols/PuzzleACircle.svg" id="4_q6sl4"]
 [ext_resource type="PackedScene" uid="uid://tqejvwjmwiyo" path="res://Scenes/Notification.tscn" id="5_gxi6r"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sutm2"]
@@ -24,10 +24,6 @@ border_width_bottom = 15
 border_color = Color(1, 1, 1, 1)
 border_blend = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_thlnk"]
-atlas = ExtResource("3_fbyto")
-region = Rect2(768, 227, 199, 199)
-
 [node name="P1" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -36,6 +32,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2py76")
+alertColor = Color(1, 0.435294, 0.368627, 1)
 
 [node name="MainLayer" type="CanvasLayer" parent="."]
 
@@ -170,6 +167,7 @@ grow_vertical = 2
 
 [node name="SolutionTexture" type="TextureRect" parent="MainLayer/SolutionContainer"]
 layout_mode = 2
+texture = ExtResource("4_q6sl4")
 expand_mode = 1
 
 [node name="CountdownBar" type="ProgressBar" parent="MainLayer"]
@@ -218,19 +216,6 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "[center]Press A to confirm"
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="MainLayer/RichTextLabel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.535
-anchor_bottom = 4.975
-offset_left = 165.0
-offset_top = -40.0
-offset_right = 164.98
-offset_bottom = -39.9997
-scale = Vector2(0.18983, 0.18983)
-fill_mode = 4
-texture_progress = SubResource("AtlasTexture_thlnk")
 
 [node name="HeartContainer" type="HBoxContainer" parent="MainLayer"]
 layout_direction = 2
