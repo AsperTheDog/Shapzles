@@ -1,12 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://vvs7yyuia6n8"]
+[gd_scene load_steps=9 format=3 uid="uid://vvs7yyuia6n8"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_6gg47"]
 [ext_resource type="PackedScene" uid="uid://ct8tdw87yo47l" path="res://Scenes/P1.tscn" id="1_lnst7"]
 [ext_resource type="PackedScene" uid="uid://mrd0eiiwbamr" path="res://Scenes/P2and3.tscn" id="2_ecb25"]
 
 [sub_resource type="Gradient" id="Gradient_wq0g2"]
-offsets = PackedFloat32Array(0, 0.5, 1)
-colors = PackedColorArray(1, 0, 0, 1, 0.898258, 0.829317, 0, 1, 0, 1, 0, 1)
+offsets = PackedFloat32Array(0.149457, 0.353261, 0.592391, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.898258, 0.829317, 0, 1, 0.254902, 1, 0.211765, 1, 0, 0.87451, 1, 1)
+
+[sub_resource type="Environment" id="Environment_8d8nd"]
+background_mode = 3
+background_canvas_max_layer = 1
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.95
+glow_blend_mode = 0
+glow_hdr_threshold = 0.2
+glow_hdr_scale = 2.4
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_42m8f"]
 color = Color(0.6, 0.6, 0.6, 1)
@@ -23,7 +33,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="Node" type="Node"]
 script = ExtResource("1_6gg47")
 timeBarGradient = SubResource("Gradient_wq0g2")
-progressAlertColor = Color(1, 0.368627, 0.301961, 1)
+progressAlertColor = Color(1, 0.592157, 0.533333, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8d8nd")
 
 [node name="P1" type="Window" parent="."]
 title = "Player 1"

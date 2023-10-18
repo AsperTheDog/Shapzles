@@ -4,6 +4,7 @@ extends Node
 @export var progressAlertColor: Color
 
 func _ready():
+	Game.timeGradient = timeBarGradient
 	Game.progressAlertColor = progressAlertColor
 	Game.isGameRunning = false
 	Logger.clearedLogs.connect(emptyLogTable)

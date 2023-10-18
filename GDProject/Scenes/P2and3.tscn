@@ -1,11 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://mrd0eiiwbamr"]
+[gd_scene load_steps=8 format=3 uid="uid://mrd0eiiwbamr"]
 
 [ext_resource type="Script" path="res://Scripts/P2and3.gd" id="1_1wwjj"]
-[ext_resource type="Texture2D" uid="uid://3wu6i1dn3v37" path="res://Symbols/PuzzleACircle.svg" id="2_s6a5q"]
+[ext_resource type="Material" uid="uid://bnl3cswcsywq8" path="res://neonGreen.tres" id="2_8nod1"]
 [ext_resource type="PackedScene" uid="uid://tqejvwjmwiyo" path="res://Scenes/Notification.tscn" id="2_tu4vi"]
 
+[sub_resource type="Theme" id="Theme_yvs42"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_658as"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1tu7"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 1)
+border_width_left = 9
+border_width_top = 9
+border_width_bottom = 9
+border_color = Color(0.494118, 0.494118, 0.494118, 0)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcmaq"]
-bg_color = Color(0.231373, 0.231373, 0.231373, 1)
+bg_color = Color(0, 0, 0, 1)
 border_width_left = 3
 border_width_top = 3
 border_width_right = 3
@@ -25,6 +52,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1wwjj")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.998
+offset_right = -3.0
+offset_bottom = 0.295959
+theme = SubResource("Theme_yvs42")
+color = Color(0.0784314, 0.0941176, 0.0784314, 1)
+
 [node name="MainLayer" type="CanvasLayer" parent="."]
 
 [node name="CountdownBar" type="ProgressBar" parent="MainLayer"]
@@ -38,7 +75,9 @@ offset_top = -19.048
 offset_right = 6.13605
 offset_bottom = -19.168
 grow_horizontal = 2
-value = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_658as")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x1tu7")
+value = 91.21
 show_percentage = false
 
 [node name="CountDown" type="RichTextLabel" parent="MainLayer/CountdownBar"]
@@ -56,8 +95,8 @@ bbcode_enabled = true
 text = "[center]5:00"
 fit_content = true
 
-[node name="Symbols" type="Control" parent="MainLayer"]
-layout_mode = 3
+[node name="Symbols" type="Control" parent="."]
+layout_mode = 1
 anchor_left = 0.009
 anchor_top = 0.145
 anchor_right = 0.99
@@ -69,7 +108,7 @@ offset_bottom = -0.208069
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HorizContainer" type="GridContainer" parent="MainLayer/Symbols"]
+[node name="HorizContainer" type="GridContainer" parent="Symbols"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -78,22 +117,25 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
-[node name="Symbol1" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
+[node name="Symbol1" type="PanelContainer" parent="Symbols/HorizContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
 
-[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol1"]
+[node name="Margin" type="MarginContainer" parent="Symbols/HorizContainer/Symbol1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol1/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Symbols/HorizContainer/Symbol1/Margin"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol1/Margin/VBox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Symbols/HorizContainer/Symbol1/Margin/VBox"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/normal_font_size = 60
@@ -101,32 +143,35 @@ bbcode_enabled = true
 text = "[center]A"
 fit_content = true
 
-[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol1/Margin/VBox"]
+[node name="SymbolContainer" type="AspectRatioContainer" parent="Symbols/HorizContainer/Symbol1/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment_vertical = 2
 
-[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol1/Margin/VBox/SymbolContainer"]
+[node name="Symbol" type="TextureRect" parent="Symbols/HorizContainer/Symbol1/Margin/VBox/SymbolContainer"]
+material = ExtResource("2_8nod1")
 layout_mode = 2
-texture = ExtResource("2_s6a5q")
 expand_mode = 1
 
-[node name="Symbol2" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
+[node name="Symbol2" type="PanelContainer" parent="Symbols/HorizContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
 
-[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol2"]
+[node name="Margin" type="MarginContainer" parent="Symbols/HorizContainer/Symbol2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol2/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Symbols/HorizContainer/Symbol2/Margin"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol2/Margin/VBox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Symbols/HorizContainer/Symbol2/Margin/VBox"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/normal_font_size = 60
@@ -134,31 +179,35 @@ bbcode_enabled = true
 text = "[center]B"
 fit_content = true
 
-[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol2/Margin/VBox"]
+[node name="SymbolContainer" type="AspectRatioContainer" parent="Symbols/HorizContainer/Symbol2/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment_vertical = 2
 
-[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol2/Margin/VBox/SymbolContainer"]
+[node name="Symbol" type="TextureRect" parent="Symbols/HorizContainer/Symbol2/Margin/VBox/SymbolContainer"]
+material = ExtResource("2_8nod1")
 layout_mode = 2
 expand_mode = 1
 
-[node name="Symbol3" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
+[node name="Symbol3" type="PanelContainer" parent="Symbols/HorizContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
 
-[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol3"]
+[node name="Margin" type="MarginContainer" parent="Symbols/HorizContainer/Symbol3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol3/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Symbols/HorizContainer/Symbol3/Margin"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol3/Margin/VBox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Symbols/HorizContainer/Symbol3/Margin/VBox"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/normal_font_size = 60
@@ -166,31 +215,35 @@ bbcode_enabled = true
 text = "[center]C"
 fit_content = true
 
-[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol3/Margin/VBox"]
+[node name="SymbolContainer" type="AspectRatioContainer" parent="Symbols/HorizContainer/Symbol3/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment_vertical = 2
 
-[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol3/Margin/VBox/SymbolContainer"]
+[node name="Symbol" type="TextureRect" parent="Symbols/HorizContainer/Symbol3/Margin/VBox/SymbolContainer"]
+material = ExtResource("2_8nod1")
 layout_mode = 2
 expand_mode = 1
 
-[node name="Symbol4" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
+[node name="Symbol4" type="PanelContainer" parent="Symbols/HorizContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
 
-[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol4"]
+[node name="Margin" type="MarginContainer" parent="Symbols/HorizContainer/Symbol4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol4/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Symbols/HorizContainer/Symbol4/Margin"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol4/Margin/VBox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Symbols/HorizContainer/Symbol4/Margin/VBox"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/normal_font_size = 60
@@ -198,32 +251,35 @@ bbcode_enabled = true
 text = "[center]D"
 fit_content = true
 
-[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol4/Margin/VBox"]
+[node name="SymbolContainer" type="AspectRatioContainer" parent="Symbols/HorizContainer/Symbol4/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment_vertical = 2
 
-[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol4/Margin/VBox/SymbolContainer"]
+[node name="Symbol" type="TextureRect" parent="Symbols/HorizContainer/Symbol4/Margin/VBox/SymbolContainer"]
+material = ExtResource("2_8nod1")
 layout_mode = 2
 expand_mode = 1
 
-[node name="Symbol5" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
-visible = false
+[node name="Symbol5" type="PanelContainer" parent="Symbols/HorizContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
 
-[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol5"]
+[node name="Margin" type="MarginContainer" parent="Symbols/HorizContainer/Symbol5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol5/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Symbols/HorizContainer/Symbol5/Margin"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol5/Margin/VBox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Symbols/HorizContainer/Symbol5/Margin/VBox"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/normal_font_size = 60
@@ -231,32 +287,35 @@ bbcode_enabled = true
 text = "[center]E"
 fit_content = true
 
-[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol5/Margin/VBox"]
+[node name="SymbolContainer" type="AspectRatioContainer" parent="Symbols/HorizContainer/Symbol5/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment_vertical = 2
 
-[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol5/Margin/VBox/SymbolContainer"]
+[node name="Symbol" type="TextureRect" parent="Symbols/HorizContainer/Symbol5/Margin/VBox/SymbolContainer"]
+material = ExtResource("2_8nod1")
 layout_mode = 2
 expand_mode = 1
 
-[node name="Symbol6" type="PanelContainer" parent="MainLayer/Symbols/HorizContainer"]
-visible = false
+[node name="Symbol6" type="PanelContainer" parent="Symbols/HorizContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_hcmaq")
 
-[node name="Margin" type="MarginContainer" parent="MainLayer/Symbols/HorizContainer/Symbol6"]
+[node name="Margin" type="MarginContainer" parent="Symbols/HorizContainer/Symbol6"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 10
 
-[node name="VBox" type="VBoxContainer" parent="MainLayer/Symbols/HorizContainer/Symbol6/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Symbols/HorizContainer/Symbol6/Margin"]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainLayer/Symbols/HorizContainer/Symbol6/Margin/VBox"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Symbols/HorizContainer/Symbol6/Margin/VBox"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_font_sizes/normal_font_size = 60
@@ -264,12 +323,13 @@ bbcode_enabled = true
 text = "[center]F"
 fit_content = true
 
-[node name="SymbolContainer" type="AspectRatioContainer" parent="MainLayer/Symbols/HorizContainer/Symbol6/Margin/VBox"]
+[node name="SymbolContainer" type="AspectRatioContainer" parent="Symbols/HorizContainer/Symbol6/Margin/VBox"]
 layout_mode = 2
 size_flags_vertical = 3
 alignment_vertical = 2
 
-[node name="Symbol" type="TextureRect" parent="MainLayer/Symbols/HorizContainer/Symbol6/Margin/VBox/SymbolContainer"]
+[node name="Symbol" type="TextureRect" parent="Symbols/HorizContainer/Symbol6/Margin/VBox/SymbolContainer"]
+material = ExtResource("2_8nod1")
 layout_mode = 2
 expand_mode = 1
 
@@ -277,4 +337,4 @@ expand_mode = 1
 layer = 10
 visible = false
 
-[node name="Notification" parent="NotificationLayer" instance=ExtResource("2_tu4vi")]
+[node name="LostNotif" parent="NotificationLayer" instance=ExtResource("2_tu4vi")]

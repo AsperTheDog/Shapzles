@@ -88,12 +88,12 @@ func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:
 
 
 func countdownTick(_delta):
+	$MainLayer/CountdownBar.get_theme_stylebox("background").border_color = Game.getGradientColor()
 	$MainLayer/CountdownBar/CountDown.text = "[center]" + Game.getStringFromCountdown()
 	$MainLayer/CountdownBar.value = Game.remainingSeconds
 
 
 func blinkProgressBar():
-	print("BLINK")
 	if Game.remainingSeconds > 60 or not Game.isGameRunning: 
 		$MainLayer/CountdownBar.self_modulate = Color.WHITE
 		return
@@ -106,7 +106,7 @@ func blinkProgressBar():
 func loadLevel():
 	forceDial($MainLayer/LetterDial/VerticalContainer/Dial, Game.Player.P2, 0)
 	forceDial($MainLayer/NumberDial/VerticalContainer/Dial, Game.Player.P3, 0)
-	$MainLayer/SolutionContainer/SolutionTexture.texture = load(Game.getSymbolFiles(Game.Player.P1)[0])
+	$SolutionContainer/SolutionTexture.texture = load(Game.getSymbolFiles(Game.Player.P1)[0])
 
 
 func isSolutionCorrect():
@@ -142,7 +142,7 @@ func onGameRunStateChanged(value: bool):
 		blinkTween.pause()
 	else:
 		blinkTween.play()
-	$MainLayer/SolutionContainer/SolutionTexture.visible = value
+	$SolutionContainer/SolutionTexture.visible = value
 	if value:
 		recoverFocus()
 

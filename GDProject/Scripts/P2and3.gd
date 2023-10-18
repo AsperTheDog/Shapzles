@@ -3,12 +3,12 @@ extends Control
 @export var player: Game.Player
 
 @onready var symbols: Array[PanelContainer] = [
-	$MainLayer/Symbols/HorizContainer/Symbol1,
-	$MainLayer/Symbols/HorizContainer/Symbol2,
-	$MainLayer/Symbols/HorizContainer/Symbol3,
-	$MainLayer/Symbols/HorizContainer/Symbol4,
-	$MainLayer/Symbols/HorizContainer/Symbol5,
-	$MainLayer/Symbols/HorizContainer/Symbol6
+	$Symbols/HorizContainer/Symbol1,
+	$Symbols/HorizContainer/Symbol2,
+	$Symbols/HorizContainer/Symbol3,
+	$Symbols/HorizContainer/Symbol4,
+	$Symbols/HorizContainer/Symbol5,
+	$Symbols/HorizContainer/Symbol6
 ]
 
 var symbolLayouts: Dictionary = {
@@ -46,12 +46,12 @@ func _process(delta):
 
 
 func countdownTick(_delta):
+	$MainLayer/CountdownBar.get_theme_stylebox("background").border_color = Game.getGradientColor()
 	$MainLayer/CountdownBar/CountDown.text = "[center]" + Game.getStringFromCountdown()
 	$MainLayer/CountdownBar.value = Game.remainingSeconds
 
 
 func blinkProgressBar():
-	print("BLINK")
 	if Game.remainingSeconds > 60 or not Game.isGameRunning: 
 		$MainLayer/CountdownBar.self_modulate = Color.WHITE
 		return
@@ -69,7 +69,7 @@ func loadLevel():
 	idxArr.shuffle()
 	var playerPos = 0 if player == Game.Player.P2 else 1
 	var origSolution = Game.solutionPosition[playerPos]
-	$MainLayer/Symbols/HorizContainer.columns = symbolLayouts[symbolFiles.size()]
+	$Symbols/HorizContainer.columns = symbolLayouts[symbolFiles.size()]
 	for idx in idxArr:
 		symbols[symbolPos].show()
 		symbols[symbolPos].get_node("Margin/VBox/SymbolContainer/Symbol").texture = load(symbolFiles[idx])
@@ -79,6 +79,7 @@ func loadLevel():
 
 
 func onGameLost():
+	$NotificationLayer/LostNotif.changeText("You ran out of time! Score: " + str(Game.getScore()))
 	$NotificationLayer.show()
 
 

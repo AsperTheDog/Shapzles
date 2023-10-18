@@ -1,10 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ct8tdw87yo47l"]
+[gd_scene load_steps=12 format=3 uid="uid://ct8tdw87yo47l"]
 
 [ext_resource type="Script" path="res://Scripts/P1.gd" id="1_2py76"]
 [ext_resource type="Texture2D" uid="uid://dfrkm7bxhru5q" path="res://UI Icons/iconmonstr-arrow-24.svg" id="2_hixht"]
+[ext_resource type="Material" uid="uid://kxf804gwen78" path="res://neonGreenP1.tres" id="2_vlb2k"]
 [ext_resource type="Texture2D" uid="uid://cyisu4mxvdefl" path="res://UI Icons/Heart.svg" id="4_njyl5"]
-[ext_resource type="Texture2D" uid="uid://3wu6i1dn3v37" path="res://Symbols/PuzzleACircle.svg" id="4_q6sl4"]
 [ext_resource type="PackedScene" uid="uid://tqejvwjmwiyo" path="res://Scenes/Notification.tscn" id="5_gxi6r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37jwm"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sutm2"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -15,6 +18,9 @@ border_width_bottom = 15
 border_color = Color(1, 1, 1, 1)
 border_blend = true
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v622m"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts6ct"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 15
@@ -24,6 +30,31 @@ border_width_bottom = 15
 border_color = Color(1, 1, 1, 1)
 border_blend = true
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bm0b"]
+bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yk355"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 1)
+border_width_left = 9
+border_width_top = 9
+border_width_bottom = 9
+border_color = Color(0.494118, 0.494118, 0.494118, 0)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="P1" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -32,7 +63,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2py76")
-alertColor = Color(1, 0.435294, 0.368627, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.997
+anchor_bottom = 1.0
+offset_right = 0.455933
+offset_bottom = -1.0
+color = Color(0.0784314, 0.0941176, 0.0784314, 1)
+
+[node name="SolutionContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.337
+anchor_top = 0.139
+anchor_right = 0.659
+anchor_bottom = 0.87
+offset_left = -0.223999
+offset_top = -0.0720062
+offset_right = -0.16803
+offset_bottom = 0.239929
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SolutionTexture" type="TextureRect" parent="SolutionContainer"]
+modulate = Color(0.517647, 0.517647, 0.517647, 1)
+material = ExtResource("2_vlb2k")
+layout_mode = 2
+expand_mode = 1
 
 [node name="MainLayer" type="CanvasLayer" parent="."]
 
@@ -50,6 +109,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 focus_neighbor_left = NodePath("../NumberDial")
 focus_neighbor_right = NodePath("../NumberDial")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_37jwm")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sutm2")
 disabled = true
 
@@ -74,6 +134,7 @@ texture = ExtResource("2_hixht")
 expand_mode = 1
 
 [node name="Dial" type="RichTextLabel" parent="MainLayer/LetterDial/VerticalContainer"]
+modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 140
@@ -108,6 +169,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 focus_neighbor_left = NodePath("../LetterDial")
 focus_neighbor_right = NodePath("../LetterDial")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_v622m")
 theme_override_styles/focus = SubResource("StyleBoxFlat_ts6ct")
 disabled = true
 
@@ -132,6 +194,7 @@ texture = ExtResource("2_hixht")
 expand_mode = 1
 
 [node name="Dial" type="RichTextLabel" parent="MainLayer/NumberDial/VerticalContainer"]
+modulate = Color(0, 1, 0, 1)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/normal_font_size = 140
@@ -152,37 +215,20 @@ texture = ExtResource("2_hixht")
 expand_mode = 1
 flip_v = true
 
-[node name="SolutionContainer" type="AspectRatioContainer" parent="MainLayer"]
-anchors_preset = -1
-anchor_left = 0.337
-anchor_top = 0.139
-anchor_right = 0.659
-anchor_bottom = 0.87
-offset_left = -0.223999
-offset_top = -0.0720062
-offset_right = -0.16803
-offset_bottom = 0.239929
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SolutionTexture" type="TextureRect" parent="MainLayer/SolutionContainer"]
-layout_mode = 2
-texture = ExtResource("4_q6sl4")
-expand_mode = 1
-
 [node name="CountdownBar" type="ProgressBar" parent="MainLayer"]
 anchors_preset = -1
 anchor_left = 0.334
 anchor_top = 0.051
 anchor_right = 0.657
 anchor_bottom = 0.116
-offset_left = 0.231964
+offset_left = 1.23196
 offset_top = -0.0480003
-offset_right = 0.135986
+offset_right = 1.13599
 offset_bottom = -0.167999
 grow_horizontal = 2
-grow_vertical = 2
-value = 100.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0bm0b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yk355")
+value = 91.21
 show_percentage = false
 
 [node name="CountDown" type="RichTextLabel" parent="MainLayer/CountdownBar"]

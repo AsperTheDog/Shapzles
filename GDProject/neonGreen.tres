@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bnl3cswcsywq8"]
+
+[ext_resource type="Shader" path="res://Scripts/turnSymbolsWhite.gdshader" id="1_bqay5"]
+
+[resource]
+shader = ExtResource("1_bqay5")
+shader_parameter/color = Vector3(0, 1, 0)

@@ -21,7 +21,7 @@ var numbers: Array[String] = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 var maxHealth: int = 3
 var currentHealth: int = maxHealth
-var countdownSeconds: int = 2 * 60
+var countdownSeconds: int = 5 * 60
 @onready var remainingSeconds: float = float(countdownSeconds)
 
 var gameData: Dictionary = preload("res://symbolTable.json").data
@@ -53,6 +53,7 @@ var currentLevel: int:
 
 var isGameWon: bool = false
 var progressAlertColor: Color = Color.WHITE
+var timeGradient: Gradient
 
 
 var isGameRunning: bool = false:
@@ -158,3 +159,8 @@ func getCurrentTime() -> float:
 
 func getScore() -> int:
 	return int(ceil(progress / float(progressData.size()) * 100))
+
+
+func getGradientColor() -> Color:
+	if timeGradient == null: return Color.WHITE
+	return timeGradient.sample(remainingSeconds / countdownSeconds)
