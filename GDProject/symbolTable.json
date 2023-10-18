@@ -10,7 +10,8 @@
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg"],
 				"P3": ["PuzzleATriangle.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
-				"index": "B"
+				"index": "B",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -20,7 +21,8 @@
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleASquare.svg", "PuzzleDSmallCircle.svg"],
 				"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleBX.svg"],
-				"index": "C"
+				"index": "C",
+				"enabled": true
 			}, 
 			{
 				"P1": {
@@ -30,7 +32,8 @@
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg", "PuzzleBPlus.svg"],
 				"P3": ["PuzzleATriangle.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg", "PuzzleASquare.svg"],
-				"index": "E"
+				"index": "E",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -40,7 +43,8 @@
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleDSmallCircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg"],
 				"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
-				"index": "O1"
+				"index": "O1",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -50,7 +54,8 @@
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleDSmallCircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg"],
 				"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
-				"index": "O3"
+				"index": "O3",
+				"enabled": true
 			}
 		],
 		"2": [
@@ -62,7 +67,8 @@
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleATriangle.svg", "PuzzleASquare.svg"],
 				"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleASquare.svg"],
-				"index": "A"
+				"index": "A",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -72,7 +78,8 @@
 				},
 				"P2": ["PuzzlePDiamond.svg", "PuzzleDOval.svg", "PuzzlePLeftDiagonal.svg", "PuzzleBX.svg"],
 				"P3": ["PuzzleASquare.svg", "PuzzlePWideOval.svg", "PuzzlePLeftRight.svg", "PuzzleBPlus.svg"],
-				"index": "P1"
+				"index": "P1",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -82,7 +89,8 @@
 				},
 				"P2": ["PuzzlePDiamond.svg", "PuzzleDOval.svg", "PuzzlePLeftDiagonal.svg", "PuzzleBX.svg"],
 				"P3": ["PuzzleASquare.svg", "PuzzlePWideOval.svg", "PuzzlePLeftRight.svg", "PuzzleBPlus.svg"],
-				"index": "P2"
+				"index": "P2",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -92,7 +100,8 @@
 				},
 				"P2": ["PuzzlePDiamond.svg", "PuzzleDOval.svg", "PuzzlePLeftDiagonal.svg", "PuzzleBX.svg"],
 				"P3": ["PuzzleASquare.svg", "PuzzlePWideOval.svg", "PuzzlePLeftRight.svg", "PuzzleBPlus.svg"],
-				"index": "P3"
+				"index": "P3",
+				"enabled": true
 			}
 		],
 		"3": [
@@ -104,7 +113,8 @@
 				},
 				"P2": ["PuzzleASquare.svg", "PuzzleFBottom2Square.svg", "PuzzleFRightDiagonal.svg"],
 				"P3": ["PuzzleBPlus.svg", "PuzzleFLeft2Square.svg", "PuzzleFWideRectangle.svg"],
-				"index": "F"
+				"index": "F",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -114,7 +124,8 @@
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleDSmallCircle.svg", "PuzzleDOval.svg"],
 				"P3": ["PuzzleDTopLeftTriangle.svg", "PuzzleATriangle.svg", "PuzzleDPointyTriangle.svg"],
-				"index": "D"
+				"index": "D",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -124,7 +135,8 @@
 				},
 				"P2": ["PuzzleGRightNMiddle.svg", "PuzzleGTopRightNMiddle.svg", "PuzzleGTopLeftNBottomRight.svg"],
 				"P3": ["PuzzleGLeft.svg", "PuzzleGRightNTopLeft.svg", "PuzzleGRightDiagonal.svg"],
-				"index": "G"
+				"index": "G",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -134,7 +146,8 @@
 				},
 				"P2": ["PuzzleINormalS.svg", "PuzzleIOutsideS.svg", "PuzzleIInsideS.svg"],
 				"P3": ["PuzzleISwirlyLine.svg", "PuzzleINormalLine.svg", "PuzzleIZigLine.svg"],
-				"index": "I2"
+				"index": "I2",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -144,7 +157,8 @@
 				},
 				"P2": ["PuzzleJUmberella.svg", "PuzzleJBox.svg", "PuzzleJBird.svg"],
 				"P3": ["PuzzleJLine.svg", "PuzzleJTable.svg", "PuzzleJY.svg"],
-				"index": "J"
+				"index": "J",
+				"enabled": true
 			}
 		],
 		"4": [
@@ -156,7 +170,8 @@
 				},
 				"P2": ["PuzzleMEyeDot.svg", "PuzzleMEyeLine.svg", "PuzzleMEyeSlit.svg", "PuzzleM6Triangles.svg", "PuzzleM4Triangles2Down.svg", "PuzzleM4Triangles1Down.svg"],
 				"P3": ["PuzzleMEyeDot.svg", "PuzzleMEyeLine.svg", "PuzzleMEyeSlit.svg", "PuzzleM6Lines.svg", "PuzzleM4Lines.svg", "PuzzleM4Lines1Down.svg"],
-				"index": "M"
+				"index": "M",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -166,7 +181,8 @@
 				},
 				"P2": ["PuzzleQMoon.svg", "PuzzleQHalfCircle.svg", "PuzzleQBird.svg"],
 				"P3": ["PuzzleQWave.svg", "PuzzleQGrass.svg", "PuzzleQWrench.svg"],
-				"index": "Q"
+				"index": "Q",
+				"enabled": true
 			}
 		],
 		"5": [
@@ -178,7 +194,8 @@
 				},
 				"P2": ["PuzzleNLego.svg", "PuzzleNTriangleLNSquare.svg", "PuzzleNTriangleRNSquare.svg"],
 				"P3": ["PuzzleNTriangleDNSquare.svg", "PuzzleNRectangle.svg", "PuzzleNTriangle.svg"],
-				"index": "N"
+				"index": "N",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -188,7 +205,8 @@
 				},
 				"P2": ["PuzzleRPointyUpNCircle.svg", "PuzzleRCircle.svg", "PuzzleRMouthNCircle.svg", "PuzzleRMouthNPointyDown.svg", "PuzzleRCircleNPointyIn.svg"],
 				"P3": ["PuzzleRMouth.svg", "PuzzleRMouthNEyes.svg", "PuzzleRLines.svg", "PuzzleRMouthNCircleAbove.svg", "PuzzleREyesNPointy.svg"],
-				"index": "R"
+				"index": "R",
+				"enabled": true
 			},
 			{
 				"P1": {
@@ -198,7 +216,8 @@
 				},
 				"P2": ["PuzzleSNr1.svg", "PuzzleSNr2.svg", "PuzzleSNr3.svg", "PuzzleSNr4.svg", "PuzzleSNr5.svg"],
 				"P3": ["PuzzleSNrA.svg", "PuzzleSNrB.svg", "PuzzleSNrC.svg", "PuzzleSNrD.svg", "PuzzleSNrE.svg"],
-				"index": "S"
+				"index": "S",
+				"enabled": true
 			}
 		]
 	}

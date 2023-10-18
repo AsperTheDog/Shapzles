@@ -43,7 +43,7 @@ var currentLevel: int:
 			Logger.completePuzzle()
 		elif symbolData[currentLevel].size() != 0:
 			currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
-			while currentPuzzle in puzzlesDone[currentLevel]:
+			while currentPuzzle in puzzlesDone[currentLevel] or not symbolData[currentLevel][currentPuzzle]["enabled"]:
 				currentPuzzle = randi_range(0, symbolData[currentLevel].size() - 1)
 			puzzlesDone[currentLevel].append(currentPuzzle)
 			maxSymbols = symbolData[currentLevel][currentPuzzle]['P2'].size()
