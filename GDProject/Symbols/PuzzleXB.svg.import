@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1mkf8ugb3emf"
-path="res://.godot/imported/PuzzleISolution.svg-55073726f816343e9f63674c657e2130.ctex"
+uid="uid://cksovekw8y50o"
+path="res://.godot/imported/PuzzleXB.svg-80788f0901b99e8b27d17f11783c7e7d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Symbols/PuzzleISolution.svg"
-dest_files=["res://.godot/imported/PuzzleISolution.svg-55073726f816343e9f63674c657e2130.ctex"]
+source_file="res://Symbols/PuzzleXB.svg"
+dest_files=["res://.godot/imported/PuzzleXB.svg-80788f0901b99e8b27d17f11783c7e7d.ctex"]
 
 [params]
 

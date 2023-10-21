@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csockfvu181sb"
-path="res://.godot/imported/PuzzleATriangle.svg-b251a30e89655a40ee04a582310e6e1d.ctex"
+uid="uid://vl84mvoixf08"
+path="res://.godot/imported/PuzzleT3Solution.svg-af036ebfb210bf03a16cbed986b7d968.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Symbols/PuzzleATriangle.svg"
-dest_files=["res://.godot/imported/PuzzleATriangle.svg-b251a30e89655a40ee04a582310e6e1d.ctex"]
+source_file="res://Symbols/PuzzleT3Solution.svg"
+dest_files=["res://.godot/imported/PuzzleT3Solution.svg-af036ebfb210bf03a16cbed986b7d968.ctex"]
 
 [params]
 
