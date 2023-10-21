@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://vvs7yyuia6n8"]
+[gd_scene load_steps=10 format=3 uid="uid://vvs7yyuia6n8"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_6gg47"]
 [ext_resource type="PackedScene" uid="uid://ct8tdw87yo47l" path="res://Scenes/P1.tscn" id="1_lnst7"]
@@ -7,6 +7,11 @@
 [sub_resource type="Gradient" id="Gradient_wq0g2"]
 offsets = PackedFloat32Array(0.149457, 0.353261, 0.592391, 1)
 colors = PackedColorArray(1, 0, 0, 1, 0.898258, 0.829317, 0, 1, 0.254902, 1, 0.211765, 1, 0, 0.87451, 1, 1)
+
+[sub_resource type="Curve" id="Curve_bdo75"]
+max_value = 1.5
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.202202, 1.26506), -1.61544, -1.61544, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Environment" id="Environment_8d8nd"]
 background_mode = 3
@@ -34,6 +39,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 script = ExtResource("1_6gg47")
 timeBarGradient = SubResource("Gradient_wq0g2")
 progressAlertColor = Color(1, 0.592157, 0.533333, 1)
+heartCurve = SubResource("Curve_bdo75")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8d8nd")

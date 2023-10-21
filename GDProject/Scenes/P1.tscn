@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ct8tdw87yo47l"]
+[gd_scene load_steps=10 format=3 uid="uid://ct8tdw87yo47l"]
 
 [ext_resource type="Script" path="res://Scripts/P1.gd" id="1_2py76"]
 [ext_resource type="Texture2D" uid="uid://dfrkm7bxhru5q" path="res://UI Icons/iconmonstr-arrow-24.svg" id="2_hixht"]
@@ -8,6 +8,10 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37jwm"]
 bg_color = Color(0.133333, 0.133333, 0.133333, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sutm2"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -17,18 +21,10 @@ border_width_right = 15
 border_width_bottom = 15
 border_color = Color(1, 1, 1, 1)
 border_blend = true
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v622m"]
-bg_color = Color(0.133333, 0.133333, 0.133333, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts6ct"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 15
-border_width_top = 15
-border_width_right = 15
-border_width_bottom = 15
-border_color = Color(1, 1, 1, 1)
-border_blend = true
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bm0b"]
 bg_color = Color(0.133333, 0.133333, 0.133333, 1)
@@ -125,6 +121,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 
 [node name="TextureRect" type="TextureRect" parent="MainLayer/LetterDial/VerticalContainer/MarginContainer"]
@@ -147,6 +144,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
 
 [node name="TextureRect" type="TextureRect" parent="MainLayer/LetterDial/VerticalContainer/MarginContainer2"]
 layout_mode = 2
@@ -169,8 +167,8 @@ grow_vertical = 2
 size_flags_horizontal = 0
 focus_neighbor_left = NodePath("../LetterDial")
 focus_neighbor_right = NodePath("../LetterDial")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_v622m")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ts6ct")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_37jwm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_sutm2")
 disabled = true
 
 [node name="VerticalContainer" type="VBoxContainer" parent="MainLayer/NumberDial"]
@@ -185,6 +183,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 
 [node name="TextureRect" type="TextureRect" parent="MainLayer/NumberDial/VerticalContainer/MarginContainer"]
@@ -207,6 +206,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 40
 
 [node name="TextureRect" type="TextureRect" parent="MainLayer/NumberDial/VerticalContainer/MarginContainer2"]
 layout_mode = 2
@@ -263,33 +263,51 @@ theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 text = "[center]Press A to confirm"
 
-[node name="HeartContainer" type="HBoxContainer" parent="MainLayer"]
+[node name="HeartContainer" type="Control" parent="MainLayer"]
 layout_direction = 2
-anchors_preset = -1
-anchor_left = 0.323
-anchor_top = 1.0
-anchor_right = 0.673
-anchor_bottom = 1.0
-offset_left = -0.0960083
-offset_top = -55.0
-offset_right = -0.296021
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.939
+anchor_right = 0.5
+anchor_bottom = 0.939
+offset_left = -79.0
+offset_top = -27.472
+offset_right = 79.0
+offset_bottom = 27.528
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+pivot_offset = Vector2(79, 28)
 size_flags_horizontal = 4
 size_flags_vertical = 8
-alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MainLayer/HeartContainer"]
 layout_mode = 2
+offset_right = 50.0
+offset_bottom = 50.0
+pivot_offset = Vector2(25, 27)
+size_flags_horizontal = 3
 texture = ExtResource("4_njyl5")
+expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="MainLayer/HeartContainer"]
 layout_mode = 2
+offset_left = 54.0
+offset_right = 104.0
+offset_bottom = 50.0
+pivot_offset = Vector2(24, 26)
+size_flags_horizontal = 3
 texture = ExtResource("4_njyl5")
+expand_mode = 1
 
 [node name="TextureRect3" type="TextureRect" parent="MainLayer/HeartContainer"]
 layout_mode = 2
+offset_left = 108.0
+offset_right = 158.0
+offset_bottom = 50.0
+pivot_offset = Vector2(25, 27)
+size_flags_horizontal = 3
 texture = ExtResource("4_njyl5")
+expand_mode = 1
 
 [node name="NotificationLayer" type="CanvasLayer" parent="."]
 layer = 10

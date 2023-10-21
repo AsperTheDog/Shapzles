@@ -10,3 +10,7 @@ func _ready():
 func changeText(newText: String):
 	text = newText
 	_ready()
+
+
+func hideFooter():
+	$RichTextLabel2.hide()

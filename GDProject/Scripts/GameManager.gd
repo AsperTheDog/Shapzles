@@ -6,6 +6,8 @@ signal puzzleChanged
 signal timeEnded
 signal resetCalled
 
+signal answeredWrong
+
 signal gameRunStateChanged(runState: bool)
 
 enum Player {
@@ -54,6 +56,8 @@ var currentLevel: int:
 var isGameWon: bool = false
 var progressAlertColor: Color = Color.WHITE
 var timeGradient: Gradient
+
+var heartCurve: Curve
 
 
 var isGameRunning: bool = false:
@@ -131,6 +135,7 @@ func wrongGuess():
 	Logger.registerError()
 	currentHealth -= 1
 	print("Remaining health: %d" % currentHealth)
+	answeredWrong.emit()
 	if currentHealth <= 0:
 		isGameRunning = false
 

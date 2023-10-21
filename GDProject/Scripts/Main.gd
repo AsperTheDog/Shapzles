@@ -2,9 +2,11 @@ extends Node
 
 @export var timeBarGradient: Gradient
 @export var progressAlertColor: Color
+@export var heartCurve: Curve
 
 func _ready():
 	Game.timeGradient = timeBarGradient
+	Game.heartCurve = heartCurve
 	Game.progressAlertColor = progressAlertColor
 	Game.isGameRunning = false
 	Logger.clearedLogs.connect(emptyLogTable)

@@ -7,9 +7,14 @@ var nextNotifShown: bool = false
 var wrongNotifShown: bool = false
 
 var blinkTween: Tween
+@onready var heartSize: Vector2 = $MainLayer/HeartContainer/TextureRect.size
+
+var dialPositionDown: float
 
 
 func _ready():
+	$NotificationLayer/WinNotif.hideFooter()
+	$NotificationLayer/LostNotif.hideFooter()
 	recoverFocus()
 	$MainLayer/LetterDial/VerticalContainer/Dial.set_meta("player", Game.Player.P2)
 	$MainLayer/NumberDial/VerticalContainer/Dial.set_meta("player", Game.Player.P3)
@@ -24,17 +29,24 @@ func _ready():
 	blinkTween = create_tween().set_loops()
 	blinkTween.tween_callback(blinkProgressBar)
 	blinkTween.tween_interval(0.5)
+	getDialDown.call_deferred()
+
+
+func getDialDown():
+	dialPositionDown = $MainLayer/LetterDial/VerticalContainer/MarginContainer2.position.y
 
 
 func _process(delta):
 	countdownTick(delta)
 	if Input.is_action_just_pressed("Confirm"):
 		if nextNotifShown:
+			$MainLayer/RichTextLabel.show()
 			$NotificationLayer/NextNotif.hide()
 			nextNotifShown = false
 			Game.isGameRunning = true
 			return
 		elif wrongNotifShown:
+			$MainLayer/RichTextLabel.show()
 			$NotificationLayer/WrongNotif.hide()
 			wrongNotifShown = false
 			return
@@ -44,8 +56,10 @@ func _process(delta):
 		return
 	var focused: RichTextLabel = get_viewport().gui_get_focus_owner().get_node("VerticalContainer/Dial")
 	if Input.is_action_just_pressed("ui_down"):
+		animateDial(focused, -1)
 		onDialChanged(focused, focused.get_meta("player"), -1)
 	elif Input.is_action_just_pressed("ui_up"):
+		animateDial(focused, 1)
 		onDialChanged(focused, focused.get_meta("player"), 1)
 	elif Input.is_action_just_pressed("Confirm"):
 		if isSolutionCorrect():
@@ -62,6 +76,7 @@ func _process(delta):
 			else:
 				hideNotifications()
 				$NotificationLayer/WrongNotif.show()
+				$MainLayer/RichTextLabel.hide()
 				wrongNotifShown = true
 
 
@@ -85,6 +100,16 @@ func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:
 	match player:
 		Game.Player.P2: selectedP2 = newIdx
 		Game.Player.P3: selectedP3 = newIdx
+
+
+func animateDial(dial: RichTextLabel, dir: int):
+	var tween: Tween = create_tween()
+	var arrow = dial.get_node("../MarginContainer") if dir == 1 else dial.get_node("../MarginContainer2")
+	var origPos = Vector2(0, 0 if dir == 1 else dialPositionDown)
+	var newPos = origPos
+	newPos.y -= 20 * dir
+	tween.tween_property(arrow, "position", newPos, 0.2)
+	tween.tween_property(arrow, "position", origPos, 0.2)
 
 
 func countdownTick(_delta):
@@ -116,6 +141,7 @@ func isSolutionCorrect():
 func onGameLost():
 	var score: int = Game.getScore()
 	hideNotifications()
+	$MainLayer/RichTextLabel.hide()
 	$NotificationLayer/LostNotif.changeText("You ran out of time! Score: " + str(score))
 	$NotificationLayer/LostNotif.show()
 
@@ -123,6 +149,7 @@ func onGameLost():
 func onGameWon():
 	var score: int = Game.getScore()
 	hideNotifications()
+	$MainLayer/RichTextLabel.hide()
 	$NotificationLayer/WinNotif.changeText("You won! Score: " + str(score))
 	$NotificationLayer/WinNotif.show()
 
@@ -153,13 +180,27 @@ func recoverFocus():
 
 func showHearts():
 	var hearts = $MainLayer/HeartContainer.get_children()
-	for heart in hearts:
-		heart.hide()
-	for i in Game.currentHealth:
-		hearts[i].show()
+	for i in hearts.size():
+		if i >= Game.currentHealth:
+			if not hearts[i].visible: continue
+			var origPos = hearts[i].global_position
+			var tween: Tween = create_tween()
+			tween.tween_method(animateHeart.bind(hearts[i], origPos), 0.0, 1.0, 0.2)
+			tween.tween_callback(func(): hearts[i].hide())
+			tween.tween_callback(func(): hearts[i].size = heartSize) 
+			tween.tween_callback(func(): hearts[i].global_position = origPos) 
+		else:
+			hearts[i].visible = true
+
+
+func animateHeart(value: float, heart: TextureRect, origPos: Vector2):
+	heart.size = Game.heartCurve.sample(value) * heartSize
+	var sizeDiff = heartSize - heart.size
+	heart.global_position = origPos + (sizeDiff / 2)
 
 
 func hideNotifications():
+	$MainLayer/RichTextLabel.show()
 	$NotificationLayer/LostNotif.hide()
 	$NotificationLayer/WinNotif.hide()
 	$NotificationLayer/NextNotif.hide()

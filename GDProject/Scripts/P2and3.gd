@@ -1,6 +1,7 @@
 extends Control
 
 @export var player: Game.Player
+@onready var heartSize: Vector2 = $MainLayer/HeartContainer/TextureRect.size
 
 @onready var symbols: Array[PanelContainer] = [
 	$Symbols/HorizContainer/Symbol1,
@@ -22,6 +23,8 @@ var blinkTween: Tween
 
 
 func _ready():
+	$NotificationLayer/LostNotif.hideFooter()
+	
 	$NotificationLayer.hide()
 	$MainLayer/CountdownBar.max_value = Game.countdownSeconds
 	$MainLayer/CountdownBar.value = Game.remainingSeconds
@@ -31,6 +34,7 @@ func _ready():
 	Game.timeEnded.connect(onGameLost)
 	Game.gameRunStateChanged.connect(onGameRunStateChanged)
 	Game.resetCalled.connect(reset)
+	Game.answeredWrong.connect(onWrongAnswer)
 	blinkTween = create_tween().set_loops()
 	blinkTween.tween_callback(blinkProgressBar)
 	blinkTween.tween_interval(0.5)
@@ -98,5 +102,31 @@ func onGameRunStateChanged(value: bool):
 		symbol.get_node("Margin/VBox/SymbolContainer/Symbol").visible = value
 
 
+func onWrongAnswer():
+	showHearts()
+
+
+func showHearts():
+	var hearts = $MainLayer/HeartContainer.get_children()
+	for i in hearts.size():
+		if i >= Game.currentHealth:
+			if not hearts[i].visible: continue
+			var origPos = hearts[i].global_position
+			var tween: Tween = create_tween()
+			tween.tween_method(animateHeart.bind(hearts[i], origPos), 0.0, 1.0, 0.2)
+			tween.tween_callback(func(): hearts[i].hide())
+			tween.tween_callback(func(): hearts[i].size = heartSize) 
+			tween.tween_callback(func(): hearts[i].global_position = origPos) 
+		else:
+			hearts[i].visible = true
+
+
+func animateHeart(value: float, heart: TextureRect, origPos: Vector2):
+	heart.size = Game.heartCurve.sample(value) * heartSize
+	var sizeDiff = heartSize - heart.size
+	heart.global_position = origPos + (sizeDiff / 2)
+
+
 func reset():
 	$NotificationLayer.hide()
+	showHearts()
