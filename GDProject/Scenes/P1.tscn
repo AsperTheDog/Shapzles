@@ -95,13 +95,20 @@ offset_bottom = 0.239929
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Symbol1" type="PanelContainer" parent="SolutionContainer"]
+[node name="SolutionPanel" type="PanelContainer" parent="SolutionContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_i5int")
 
-[node name="SolutionTexture" type="TextureRect" parent="SolutionContainer"]
+[node name="margin" type="MarginContainer" parent="SolutionContainer/SolutionPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="SolutionTexture" type="TextureRect" parent="SolutionContainer/SolutionPanel/margin"]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
 material = ExtResource("2_vlb2k")
 layout_mode = 2

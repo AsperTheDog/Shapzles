@@ -132,7 +132,7 @@ func loadLevel():
 	$MainLayer/CountdownBar/Score.text = "[center]Current score: " + str(Game.getScore())
 	forceDial($MainLayer/LetterDial/VerticalContainer/Dial, Game.Player.P2, 0)
 	forceDial($MainLayer/NumberDial/VerticalContainer/Dial, Game.Player.P3, 0)
-	$SolutionContainer/SolutionTexture.texture = load(Game.getSymbolFiles(Game.Player.P1)[0])
+	$SolutionContainer/SolutionPanel/margin/SolutionTexture.texture = load(Game.getSymbolFiles(Game.Player.P1)[0])
 
 
 func isSolutionCorrect():
@@ -171,7 +171,7 @@ func onGameRunStateChanged(value: bool):
 		blinkTween.pause()
 	else:
 		blinkTween.play()
-	$SolutionContainer/SolutionTexture.visible = value
+	$SolutionContainer/SolutionPanel/margin/SolutionTexture.visible = value
 	if value:
 		recoverFocus()
 
