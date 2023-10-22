@@ -1,10 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://ct8tdw87yo47l"]
+[gd_scene load_steps=11 format=3 uid="uid://ct8tdw87yo47l"]
 
 [ext_resource type="Script" path="res://Scripts/P1.gd" id="1_2py76"]
 [ext_resource type="Texture2D" uid="uid://dfrkm7bxhru5q" path="res://UI Icons/iconmonstr-arrow-24.svg" id="2_hixht"]
 [ext_resource type="Material" uid="uid://kxf804gwen78" path="res://neonGreenP1.tres" id="2_vlb2k"]
 [ext_resource type="Texture2D" uid="uid://cyisu4mxvdefl" path="res://UI Icons/Heart.svg" id="4_njyl5"]
 [ext_resource type="PackedScene" uid="uid://tqejvwjmwiyo" path="res://Scenes/Notification.tscn" id="5_gxi6r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5int"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_37jwm"]
 bg_color = Color(0.133333, 0.133333, 0.133333, 1)
@@ -82,6 +94,12 @@ offset_right = -0.16803
 offset_bottom = 0.239929
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Symbol1" type="PanelContainer" parent="SolutionContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_i5int")
 
 [node name="SolutionTexture" type="TextureRect" parent="SolutionContainer"]
 modulate = Color(0.517647, 0.517647, 0.517647, 1)
@@ -245,6 +263,21 @@ theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 text = "[center]5:00"
 fit_content = true
+
+[node name="Score" type="RichTextLabel" parent="MainLayer/CountdownBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.005
+anchor_top = 1.071
+anchor_right = 1.0
+anchor_bottom = 1.071
+offset_left = 0.14003
+offset_top = 0.0179977
+offset_right = -2.0
+offset_bottom = 54.018
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Current Score: 0"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainLayer"]
 clip_contents = false

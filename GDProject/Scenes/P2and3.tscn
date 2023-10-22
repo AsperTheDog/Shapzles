@@ -141,6 +141,20 @@ size_flags_horizontal = 3
 texture = ExtResource("2_77vrg")
 expand_mode = 1
 
+[node name="Score" type="RichTextLabel" parent="MainLayer"]
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.009
+anchor_right = 0.326
+anchor_bottom = 0.093
+offset_left = -0.304
+offset_top = 0.168
+offset_right = 0.447998
+offset_bottom = -0.264
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+text = "[center]Current Score: 0"
+
 [node name="Symbols" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.009
@@ -381,6 +395,10 @@ expand_mode = 1
 
 [node name="NotificationLayer" type="CanvasLayer" parent="."]
 layer = 10
-visible = false
 
 [node name="LostNotif" parent="NotificationLayer" instance=ExtResource("2_tu4vi")]
+visible = false
+
+[node name="WinNotif" parent="NotificationLayer" instance=ExtResource("2_tu4vi")]
+visible = false
+text = "You won!"

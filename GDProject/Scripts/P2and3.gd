@@ -25,7 +25,7 @@ var blinkTween: Tween
 func _ready():
 	$NotificationLayer/LostNotif.hideFooter()
 	
-	$NotificationLayer.hide()
+	hideNotifications()
 	$MainLayer/CountdownBar.max_value = Game.countdownSeconds
 	$MainLayer/CountdownBar.value = Game.remainingSeconds
 	assignLabels(Game.letters if player == Game.Player.P2 else Game.numbers)
@@ -35,6 +35,7 @@ func _ready():
 	Game.gameRunStateChanged.connect(onGameRunStateChanged)
 	Game.resetCalled.connect(reset)
 	Game.answeredWrong.connect(onWrongAnswer)
+	Game.gameWon.connect(onGameWon)
 	blinkTween = create_tween().set_loops()
 	blinkTween.tween_callback(blinkProgressBar)
 	blinkTween.tween_interval(0.5)
@@ -80,11 +81,21 @@ func loadLevel():
 		if origSolution == idx:
 			Game.solutionPosition[playerPos] = symbolPos
 		symbolPos += 1
+	$MainLayer/Score.text = "[center]Current score: " + str(Game.getScore())
 
 
 func onGameLost():
+	hideNotifications()
 	$NotificationLayer/LostNotif.changeText("You ran out of time! Score: " + str(Game.getScore()))
-	$NotificationLayer.show()
+	$NotificationLayer/LostNotif.show()
+
+
+func onGameWon():
+	var score: int = Game.getScore()
+	hideNotifications()
+	$NotificationLayer/WinNotif.changeText("You won! Score: " + str(score))
+	$NotificationLayer/WinNotif.show()
+	$MainLayer/Score.text = "[center]Current score: " + str(score)
 
 
 func setPanelsVisibility(areVibisle: bool):
@@ -125,6 +136,11 @@ func animateHeart(value: float, heart: TextureRect, origPos: Vector2):
 	heart.size = Game.heartCurve.sample(value) * heartSize
 	var sizeDiff = heartSize - heart.size
 	heart.global_position = origPos + (sizeDiff / 2)
+
+
+func hideNotifications():
+	$NotificationLayer/LostNotif.hide()
+	$NotificationLayer/WinNotif.hide()
 
 
 func reset():
