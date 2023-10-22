@@ -1,0 +1,159 @@
+body {
+    background-color: #d9d5cc;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 auto;
+    color: #432A19;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+header {
+    margin: 0 auto;
+    width: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+header h2 {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #432A19;
+    padding-bottom: 2%;
+    border-bottom: #432A19 solid 1px;
+    width: 80%;
+}
+
+/* Main */
+
+main {
+    text-align: center;
+}
+
+main section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 4%;
+}
+
+
+/*
+.images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 80%;
+}
+*/
+h2 {
+    font-size: 2em;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Displaying the photos */
+#imgViewer, #control {
+    width: 100%;
+    text-align: center;
+}
+#imgViewer img {
+    border: 6px ridge #F90;
+    width: 380px;
+    max-width: 100%;
+}
+#imgViewer figcaption {
+    font-style: italic;
+}
+#control button {
+    background-color: #FFF;
+    margin: 0 20px;
+    font-size: 1em;
+    border: 1px solid rgb(139, 139, 139);
+}
+
+/* Footer */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0% 0% 2% 0%;
+}
+
+footer h2 {
+    border-top: #8A6859 solid 1px;
+    width: 50%;
+}
+
+.placeholder {
+    width: 90%;
+    border-radius: 50%;
+}
+/*
+@media screen and (max-width: 800px) {
+
+    .modes {
+        height: 250px;
+    }
+
+
+    .placeholder {
+        width: 40%;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .extra {
+        display: inline-block;
+    }
+
+    .images {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .images .col {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 5%;
+    }
+
+    .col img {
+        margin-right: 10%;
+    }
+
+    .name {
+        text-align: left;
+    }
+
+    html, body {
+        overflow-x: hidden;
+    }
+
+    body {
+    position: relative
+    }
+
+    .logo {
+        background-color: red;
+    }
+	*/
+}

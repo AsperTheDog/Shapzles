@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>[Your webpage title goes here]</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/main.css" rel="stylesheet" />
+    </head>    
+
+    <body>
+        <div class="container">
+            <!--The contents of the website, both the body and the footer-->
+            <header>
+                <h1>[Your project title goes here. You can make this more attractive by changing the css if you like]</h1>
+            </header>
+            <main>
+			<p> [Add some information about your project here. You can make this more attractive by changing the css
+			     and adding some images if you like.]</p>
+			<p> [Some groups divide this into sections and use the same information as they put on the poster for the 
+				exhibition. You can divide this into sections on one page, or have multiple pages. But you can also
+                keep it very short and plain. Remember though that the website remains public and is a way to demonstrate
+                your work to potential employers who may not have seen your poster or visited the exhibition.]	</p>			
+          
+            </main>
+            <footer>
+			<!-- Remember to change these for your own photos and contact details/ linked in pages -->
+                <div class="line"></div>
+                <h2>Project members</h2>
+                <section class="images">
+                    <div class="col">
+                        <img src="img/josef.png" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4>Josef Wideström</h4>
+                            <a href="https://www.linkedin.com/in/josef-widestr%C3%B6m-20147aa6/">
+                                <img src="img/linkedin.png" alt="Linkedin icon" >
+                            </a>
+                            <a href="mailto: josef.widestrom@chalmers.se">
+                                <img src="img/email.png" alt="Email icon">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="img/pauline.png" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4>Pauline Belford</h4>
+                            <a href="https://www.linkedin.com/in/pauline-belford-06903711/">
+                                <img src="img/linkedin.png" alt="Linkedin icon" >
+                            </a>
+                            <a href="mailto: pauline.belford@chalmers.se">
+                                <img src="img/email.png" alt="Email icon">
+                            </a>
+                        </div>
+                    </div>
+					<div class="col">
+                        <img src="img/natasha.png" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4>Natasha Bianca Mangan</h4>
+                            <a href="https://www.linkedin.com/in/natasha-m-033ba4b9/">
+                                <img src="img/linkedin.png" alt="Linkedin icon" >
+                            </a>
+                            <a href="mailto: natashab@chalmers.se">
+                                <img src="img/email.png" alt="Email icon">
+                            </a>
+                        </div>
+                    </div>
+					<div class="col">
+                        <img src="img/becky.png" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4>Becky Bergman</h4>
+                     
+                            <a href="mailto: .becky@chalmers.se">
+                                <img src="img/email.png" alt="Email icon">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="img/elias.png" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4>Elias Hällqvist</h4>
+                     
+                            <a href="mailto: .haelias@chalmers.se">
+                                <img src="img/email.png" alt="Email icon">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="img/jasmina.png" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4>Jasmina Maric</h4>
+							<a href= "https://www.linkedin.com/in/jasmina-maric-1b260919/">
+                                <img src="img/linkedin.png" alt="Linkedin icon" >
+                            </a>
+                            <a href="mailto: jasmina@chalmers.se">
+                                <img src="img/email.png" alt="Email icon">
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </footer>
+        </div>
+    </body>
+</html>

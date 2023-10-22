@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Shapzels</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/main.css" rel="stylesheet" />
+        <link rel="preload" href="img/background.png" as="image"/>
+    </head>    
+
+    <body>
+        <div class="container">
+            <!--The contents of the website, both the body and the footer-->
+            <header>
+                <img src="img/shapzels_logo.png" id="logo1">
+                <img src="img/shapzels_glow.png" id="logo2">
+                <h1 class="glow1">Shapzels</h1>
+            </header>
+            <main>
+
+                <div id="fillBox" class="glowBox"> 
+                    <div id="textBox1" class="glow2">
+                        Shapzels is a collaborative puzzle game where three or more players cooperate to solve the puzzle in front of them. 
+                        <br>
+                        <br>
+                        Shapzels has been modeled after how Prison Island designs their action rooms, and acts as a digital prototype for a potential addition to their repertoire of challenging action rooms. 
+                    </div>
+                    <div id="textBox2" class="glow1">
+                        The best way to experience the game is to play it with no prior experience, as that is how Prison Islands action rooms function. But if you are curious, this is how the game works.
+                    </div>
+                    <div id="textBox3" class="glow2">
+                        One player acts as the guide, where they are presented with a symbol and the option to input a letter and a number. The other two players are presented with three or more symbols with an identification of either a letter or a number for each. They then have to communicate with each other and the guide to combine their two symbols so that it matches the one the guide has.
+                    </div>              
+                    <div id="textBox4" class="glow1">
+                        We performed tests of Shapzels with collaboration from NTI Gymnasiet Kronhus, if you are curious on how the game looks from a player perspective, <a href="https://www.instagram.com/p/CyV3LHKokJU/?img_index=1" target="_blank">click here!</a> 
+                        <br>
+                        <br>
+                        While simple in practice, this game can be challenging. So be prepared!
+                    </div>
+                </div>
+
+            <!--Image slider-->
+            <br>
+            <h3 class="glow1">Slideshow over the game</h3>
+
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                  <div class="numbertext">1 / 4</div>
+                  <img src="img/slider1.png" style="width:100%">
+                  <div class="text">Before the game has started / Game is paused</div>
+                </div>
+                
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 4</div>
+                    <img src="img/slider2.png" style="width:100%">
+                    <div class="text">View for player A</div>
+                  </div>
+
+                <div class="mySlides fade">
+                  <div class="numbertext">3 / 4</div>
+                  <img src="img/slider3.png" style="width:100%">
+                  <div class="text">View for player B</div>
+                </div>
+                
+                <div class="mySlides fade">
+                  <div class="numbertext">4 / 4</div>
+                  <img src="img/slider4.png" style="width:100%">
+                  <div class="text">View for the Guide</div>
+                </div>
+                
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+                
+                </div>
+                <br>
+                
+                <div style="text-align:center">
+                  <span class="dot" onclick="currentSlide(1)"></span> 
+                  <span class="dot" onclick="currentSlide(2)"></span> 
+                  <span class="dot" onclick="currentSlide(3)"></span> 
+                  <span class="dot" onclick="currentSlide(4)"></span> 
+                </div>
+                
+                <script>
+                let slideIndex = 1;
+                showSlides(slideIndex);
+                
+                function plusSlides(n) {
+                  showSlides(slideIndex += n);
+                }
+                
+                function currentSlide(n) {
+                  showSlides(slideIndex = n);
+                }
+                
+                function showSlides(n) {
+                  let i;
+                  let slides = document.getElementsByClassName("mySlides");
+                  let dots = document.getElementsByClassName("dot");
+                  if (n > slides.length) {slideIndex = 1}    
+                  if (n < 1) {slideIndex = slides.length}
+                  for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                  }
+                  for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                  }
+                  slides[slideIndex-1].style.display = "block";  
+                  dots[slideIndex-1].className += " active";
+                }
+                </script>    
+
+          
+            </main>
+            <footer>
+			<!-- Remember to change these for your own photos and contact details/ linked in pages -->
+                <div class="line"></div>
+                <h2 class="glow1">Project members</h2>
+                <section class="images">
+                    <div class="col">
+                        <img src="img/William.jpg" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4 class="glow1">Guillernmo Muños</h4>
+                            <a href="https://www.linkedin.com/in/guillermo-muñoz-7a248a21b/" target="_blank">
+                                <img src="img/linkedin.png" alt="Linkedin icon" class="icon">
+                            </a>
+                            <a href="mailto: gmunozrodr@gmail.com">
+                                <img src="img/email.png" alt="Email icon" class="icon">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="img/Emil.jpg" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4 class="glow2">Emil Ekroth</h4>
+                            <a href="https://www.linkedin.com/in/emilekroth/" target="_blank">
+                                <img src="img/linkedin.png" alt="Linkedin icon" class="icon">
+                            </a>
+                            <a href="mailto: emil@ekroth.se">
+                                <img src="img/email.png" alt="Email icon" class="icon">
+                            </a>
+                        </div>
+                    </div>
+					<div class="col">
+                        <img src="img/Markus.jpg" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4 class="glow1">Markus Grahn</h4>
+                            <a href="https://www.linkedin.com/in/markus-grahn-43636a278/" target="_blank">
+                                <img src="img/linkedin.png" alt="Linkedin icon" class="icon">
+                            </a>
+                            <a href="mailto: markus-grahn@hotmail.com">
+                                <img src="img/email.png" alt="Email icon" class="icon">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="img/Samuel.jpg" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4 class="glow2">Samuel Dahlborg</h4>
+                            <a href="https://www.linkedin.com/in/samuel-dahlborg-701772194/ " target="_blank">
+                                <img src="img/linkedin.png" alt="Linkedin icon" class="icon">
+                            </a>
+                            <a href="mailto: Samuel.dahlborg@gmail.com">
+                                <img src="img/email.png" alt="Email icon" class="icon">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <img src="img/Hannes.jpg" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4 class="glow1">Hannes Svahn</h4>
+							<a href= "https://www.linkedin.com/in/hannes-svahn-49604216a/" target="_blank">
+                                <img src="img/linkedin.png" alt="Linkedin icon" class="icon">
+                            </a>
+                            <a href="mailto: hannessvahn1999@gmail.com">
+                                <img src="img/email.png" alt="Email icon" class="icon">
+                            </a>
+                        </div>
+                    </div>
+					<div class="col">
+                        <img src="img/Jon.jpg" alt="" class="placeholder"/>
+                        <div class="name">
+                            <h4 class="glow2">Jon Emilsson</h4>
+                            <a href="https://www.linkedin.com/in/jon-emilsson-4b8a69226/" target="_blank">
+                                <img src="img/linkedin.png" alt="Linkedin icon" class="icon">
+                            </a>
+                            <a href="mailto: jon.emilsson0522@gmail.com">
+                                <img src="img/email.png" alt="Email icon" class="icon">
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </footer>
+        </div>
+    </body>
+</html>
