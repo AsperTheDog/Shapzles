@@ -303,7 +303,7 @@
 				"P2": ["PuzzleRPointyUpNCircle.svg", "PuzzleRCircle.svg", "PuzzleRMouthNCircle.svg", "PuzzleRMouthNPointyDown.svg", "PuzzleRCircleNPointyIn.svg"],
 				"P3": ["PuzzleRMouth.svg", "PuzzleRMouthNEyes.svg", "PuzzleRLines.svg", "PuzzleRMouthNCircleAbove.svg", "PuzzleREyesNPointy.svg"],
 				"index": "R2",
-				"enabled": true
+				"enabled": false
 			},
 			{
 				"P1": {
@@ -315,10 +315,18 @@
 				"P3": ["PuzzleXA.svg", "PuzzleXB.svg", "PuzzleXC.svg", "PuzzleXD.svg", "PuzzleXE.svg"],
 				"index": "V",
 				"enabled": true
-			}
-			
-		],
-		"5": [
+			},
+			{
+				"P1": {
+					"SymbolFile": "PuzzleYSolution.svg",
+					"P2SolutionIndex": 0,
+					"P3SolutionIndex": 0
+				},
+				"P2": ["PuzzleY1.svg", "PuzzleY2.svg", "PuzzleY3.svg", "PuzzleY4.svg", "PuzzleY5.svg"],
+				"P3": ["PuzzleYA.svg", "PuzzleYB.svg", "PuzzleYC.svg", "PuzzleYD.svg", "PuzzleYE.svg"],
+				"index": "Y",
+				"enabled": true
+			},
 			{
 				"P1": {
 					"SymbolFile": "PuzzleNSolution.svg",
@@ -328,8 +336,10 @@
 				"P2": ["PuzzleNLego.svg", "PuzzleNTriangleLNSquare.svg", "PuzzleNTriangleRNSquare.svg"],
 				"P3": ["PuzzleNTriangleDNSquare.svg", "PuzzleNRectangle.svg", "PuzzleNTriangle.svg"],
 				"index": "N",
-				"enabled": false
-			},
+				"enabled": true
+			}
+		],
+		"5": [
 			{
 				"P1": {
 					"SymbolFile": "PuzzleSSolution.svg",
