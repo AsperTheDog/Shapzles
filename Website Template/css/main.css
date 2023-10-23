@@ -155,6 +155,62 @@ main section {
     padding-bottom: 4%;
 }
 
+.GlowSymbols {
+    width: 12vw;
+    transition: 0.3s;
+}
+
+.GlowSymbols:hover {
+    transition: 0.3s;
+    opacity: 0;
+}
+
+
+#Eye {
+    position: absolute;
+    top: 10vh;
+    left: 10vw;
+}
+
+#ClosedEye {
+    position: absolute;
+    top: 40vh;
+    left: 70vw;
+}
+
+#DropEye {
+    position: absolute;
+    top: 80vh;
+    left: 25vw;
+}
+
+#TextEye {
+    position: relative;
+    left: 20%;
+}
+
+#TextEyeClosed {
+    position: relative;
+    left: -20%;
+}
+
+#Eye2 {
+    position: absolute;
+    top: 230vh;
+    left: 10vw;
+}
+
+#ClosedEye2 {
+    position: absolute;
+    top: 245vh;
+    left: 80vw;
+}
+
+#DropEye2 {
+    position: absolute;
+    top: 280vh;
+    left: 5vw;
+}
 
 #fillBox{
     width: 80%;
@@ -467,5 +523,23 @@ footer h2 {
 
     .icon{
         padding-left: 15px;
+    }
+
+    #Eye2 {
+        position: absolute;
+        top: 410vh;
+        left: 10vw;
+    }
+    
+    #ClosedEye2 {
+        position: absolute;
+        top: 445vh;
+        left: 80vw;
+    }
+    
+    #DropEye2 {
+        position: absolute;
+        top: 480vh;
+        left: 5vw;
     }
 }
