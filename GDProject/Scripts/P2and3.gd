@@ -46,7 +46,15 @@ func assignLabels(lst: Array[String]):
 		symbols[idx].get_node("Margin/VBox/RichTextLabel").text = "[center]" + lst[idx]
 
 
+var currentWinMode: DisplayServer.WindowMode
 func _process(delta):
+	if Input.is_action_just_pressed("Fullscreen"):
+		if currentWinMode == DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED:
+			currentWinMode = DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN
+		else:
+			currentWinMode = DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED
+		DisplayServer.window_set_mode(currentWinMode, 2 if player == Game.Player.P2 else 3)
+		ProjectSettings.set("display/window/size/mode", currentWinMode)
 	countdownTick(delta)
 
 

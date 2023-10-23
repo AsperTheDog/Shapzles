@@ -51,6 +51,7 @@ heartCurve = SubResource("Curve_bdo75")
 environment = SubResource("Environment_8d8nd")
 
 [node name="P1" type="Window" parent="."]
+mode = 3
 title = "Player 1"
 position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
@@ -58,6 +59,7 @@ size = Vector2i(1920, 1080)
 [node name="P1" parent="P1" instance=ExtResource("1_lnst7")]
 
 [node name="P2" type="Window" parent="."]
+mode = 3
 title = "Player 2"
 position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
@@ -66,6 +68,7 @@ size = Vector2i(1920, 1080)
 player = 1
 
 [node name="P3" type="Window" parent="."]
+mode = 3
 title = "Player 3"
 position = Vector2i(0, 36)
 size = Vector2i(1920, 1080)
@@ -285,22 +288,27 @@ layout_mode = 2
 
 [node name="ambient" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ypbqr")
-autoplay = true
+volume_db = -10.0
 
 [node name="correct" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_uwv8b")
+volume_db = -20.0
 
 [node name="wrong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_oj4b1")
+volume_db = 10.0
 
 [node name="shiftDial" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_p7nkd")
+volume_db = -20.0
 
 [node name="lost" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_y8y2t")
+volume_db = -40.0
 
 [node name="won" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_o3o7o")
+volume_db = -40.0
 
 [connection signal="pressed" from="Control/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/ToggleGame" to="." method="_on_toggle_game_pressed"]

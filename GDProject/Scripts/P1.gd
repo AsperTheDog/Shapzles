@@ -39,7 +39,15 @@ func getDialDown():
 	dialPositionDown = $MainLayer/LetterDial/VerticalContainer/MarginContainer2.position.y
 
 
+var currentWinMode: DisplayServer.WindowMode
 func _process(delta):
+	if Input.is_action_just_pressed("Fullscreen"):
+		if currentWinMode == DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED:
+			currentWinMode = DisplayServer.WindowMode.WINDOW_MODE_FULLSCREEN
+		else:
+			currentWinMode = DisplayServer.WindowMode.WINDOW_MODE_MAXIMIZED
+		DisplayServer.window_set_mode(currentWinMode, 1)
+		ProjectSettings.set("display/window/size/mode", currentWinMode)
 	countdownTick(delta)
 	if Input.is_action_just_pressed("Confirm"):
 		if nextNotifShown:
