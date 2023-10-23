@@ -1,5 +1,8 @@
 extends Control
 
+signal dialChanged
+signal dialShifted
+
 var selectedP2: int = 0
 var selectedP3: int = 0
 
@@ -69,6 +72,7 @@ func _process(delta):
 			Game.wrongGuess()
 			showHearts()
 			if Game.currentHealth == 0:
+				Game.gameLost.emit()
 				var score: int = Game.getScore()
 				hideNotifications()
 				$NotificationLayer/LostNotif.changeText("You lost! Score: " + str(score))
@@ -100,6 +104,7 @@ func onDialChanged(label: RichTextLabel, player: Game.Player, dir: int) -> void:
 	match player:
 		Game.Player.P2: selectedP2 = newIdx
 		Game.Player.P3: selectedP3 = newIdx
+	dialShifted.emit()
 
 
 func animateDial(dial: RichTextLabel, dir: int):
@@ -140,6 +145,7 @@ func isSolutionCorrect():
 
 
 func onGameLost():
+	Game.gameLost.emit()
 	var score: int = Game.getScore()
 	hideNotifications()
 	$MainLayer/RichTextLabel.hide()
@@ -160,6 +166,7 @@ func onLevelCompleted():
 	print("CORRECT")
 	Game.requestNextLevel()
 	if not Game.isGameWon:
+		Game.answeredRight.emit()
 		hideNotifications()
 		$NotificationLayer/NextNotif.show()
 		nextNotifShown = true
@@ -209,7 +216,6 @@ func hideNotifications():
 	nextNotifShown = false
 	$NotificationLayer/WrongNotif.hide()
 	wrongNotifShown = false
-	
 
 
 func reset():

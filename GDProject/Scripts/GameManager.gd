@@ -1,12 +1,14 @@
 extends Node
 
 signal gameWon
+signal gameLost
 
 signal puzzleChanged
 signal timeEnded
 signal resetCalled
 
 signal answeredWrong
+signal answeredRight
 
 signal gameRunStateChanged(runState: bool)
 
@@ -132,6 +134,7 @@ func requestNextLevel():
 
 
 func wrongGuess():
+	answeredWrong.emit()
 	Logger.registerError()
 	currentHealth -= 1
 	print("Remaining health: %d" % currentHealth)
