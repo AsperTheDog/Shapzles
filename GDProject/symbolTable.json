@@ -313,7 +313,7 @@
 				},
 				"P2": ["PuzzleX1.svg", "PuzzleX2.svg", "PuzzleX3.svg", "PuzzleX4.svg", "PuzzleX5.svg"],
 				"P3": ["PuzzleXA.svg", "PuzzleXB.svg", "PuzzleXC.svg", "PuzzleXD.svg", "PuzzleXE.svg"],
-				"index": "V",
+				"index": "X",
 				"enabled": true
 			},
 			{
