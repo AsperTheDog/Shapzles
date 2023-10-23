@@ -10,6 +10,11 @@ func _ready():
 	Game.progressAlertColor = progressAlertColor
 	Game.isGameRunning = false
 	Logger.clearedLogs.connect(emptyLogTable)
+	$P1/P1.dialShifted.connect(func(): $shiftDial.play())
+	Game.answeredRight.connect(func(): $correct.play())
+	Game.answeredWrong.connect(func(): $wrong.play())
+	Game.gameLost.connect(func(): $lost.play())
+	Game.gameWon.connect(func(): $won.play())
 
 
 func _process(_delta):

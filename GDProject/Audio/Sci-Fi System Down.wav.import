@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cp4jfaey0n4yy"
+path="res://.godot/imported/Sci-Fi System Down.wav-379bb312c623206e4426ada92ffe0280.sample"
+
+[deps]
+
+source_file="res://Audio/Sci-Fi System Down.wav"
+dest_files=["res://.godot/imported/Sci-Fi System Down.wav-379bb312c623206e4426ada92ffe0280.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

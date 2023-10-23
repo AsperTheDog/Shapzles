@@ -1,8 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://vvs7yyuia6n8"]
+[gd_scene load_steps=16 format=3 uid="uid://vvs7yyuia6n8"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_6gg47"]
 [ext_resource type="PackedScene" uid="uid://ct8tdw87yo47l" path="res://Scenes/P1.tscn" id="1_lnst7"]
 [ext_resource type="PackedScene" uid="uid://mrd0eiiwbamr" path="res://Scenes/P2and3.tscn" id="2_ecb25"]
+[ext_resource type="AudioStream" uid="uid://rd5dsh1fdbba" path="res://Audio/Laboratory.wav" id="4_ypbqr"]
+[ext_resource type="AudioStream" uid="uid://bu1rohuspclj0" path="res://Audio/Accepting Mellow.wav" id="5_uwv8b"]
+[ext_resource type="AudioStream" uid="uid://cl4i0gk87owkt" path="res://Audio/Decline Mellow.wav" id="6_oj4b1"]
+[ext_resource type="AudioStream" uid="uid://hc4ivfpv5bq" path="res://Audio/Click String Dry.wav" id="6_p7nkd"]
+[ext_resource type="AudioStream" uid="uid://cp4jfaey0n4yy" path="res://Audio/Sci-Fi System Down.wav" id="8_y8y2t"]
+[ext_resource type="AudioStream" uid="uid://d0awu8aiu2ecl" path="res://Audio/success-1-6297.mp3" id="9_o3o7o"]
 
 [sub_resource type="Gradient" id="Gradient_wq0g2"]
 offsets = PackedFloat32Array(0.149457, 0.353261, 0.592391, 1)
@@ -276,6 +282,25 @@ fit_content = true
 [node name="placeholderSeparator" type="HSeparator" parent="Control/Logs/MainContainer/ScrollContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
+
+[node name="ambient" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ypbqr")
+autoplay = true
+
+[node name="correct" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_uwv8b")
+
+[node name="wrong" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_oj4b1")
+
+[node name="shiftDial" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p7nkd")
+
+[node name="lost" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_y8y2t")
+
+[node name="won" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_o3o7o")
 
 [connection signal="pressed" from="Control/Reset" to="." method="_on_reset_pressed"]
 [connection signal="pressed" from="Control/ToggleGame" to="." method="_on_toggle_game_pressed"]

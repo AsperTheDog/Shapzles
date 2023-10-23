@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cl4i0gk87owkt"
+path="res://.godot/imported/Decline Mellow.wav-f96a9a3fd1d20e7bb5f60c9b095c5e93.sample"
+
+[deps]
+
+source_file="res://Audio/Decline Mellow.wav"
+dest_files=["res://.godot/imported/Decline Mellow.wav-f96a9a3fd1d20e7bb5f60c9b095c5e93.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
