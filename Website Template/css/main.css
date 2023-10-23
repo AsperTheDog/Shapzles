@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url('../img/background_symbols.png'), url('../img/background.png');
+    background: url('../img/background.png');
     background-size: 100vw;
     font-family: tiltNeon;
     margin: 0 auto;
