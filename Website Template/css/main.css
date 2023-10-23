@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url('../img/background_symbols.png'), url('../img/background.png');
+    background: url('../img/background.png');
     background-size: 100vw;
     font-family: tiltNeon;
     margin: 0 auto;
@@ -155,6 +155,62 @@ main section {
     padding-bottom: 4%;
 }
 
+.GlowSymbols {
+    width: 12vw;
+    transition: 0.3s;
+}
+
+.GlowSymbols:hover {
+    transition: 0.3s;
+    opacity: 0;
+}
+
+
+#Eye {
+    position: absolute;
+    top: 10vh;
+    left: 10vw;
+}
+
+#ClosedEye {
+    position: absolute;
+    top: 40vh;
+    left: 70vw;
+}
+
+#DropEye {
+    position: absolute;
+    top: 80vh;
+    left: 25vw;
+}
+
+#TextEye {
+    position: relative;
+    left: 20%;
+}
+
+#TextEyeClosed {
+    position: relative;
+    left: -20%;
+}
+
+#Eye2 {
+    position: absolute;
+    top: 230vh;
+    left: 10vw;
+}
+
+#ClosedEye2 {
+    position: absolute;
+    top: 245vh;
+    left: 80vw;
+}
+
+#DropEye2 {
+    position: absolute;
+    top: 280vh;
+    left: 5vw;
+}
 
 #fillBox{
     width: 80%;
@@ -361,7 +417,7 @@ footer h2 {
     width: 50px;
     height: 50px;
 }
-/*
+
 @media screen and (max-width: 800px) {
 
     .modes {
@@ -370,7 +426,7 @@ footer h2 {
 
 
     .placeholder {
-        width: 40%;
+        width: 60%;
     }
 
     h2 {
@@ -414,5 +470,76 @@ footer h2 {
         background-color: red;
     }
 
+    h1{
+        font-size: 60px;
+    }
+
+    #fillBox{
+        width: 80%;
+        height: fit-content;
+        border-color: #16ff00;
+        border-radius: 20px; 
+        border-style: solid;
+        border-width: 10px;
+        left: 10%;
+        position: relative;
+        font-size: 20px;
+        padding-top:50px;
+        padding-bottom:50px;
+    }
+
+    #textBox2{
+        width: auto;
+        left: 0%;
+        border-color: #16ff00;
+        border-radius: 2px; 
+        border-width: 5px;
+        position: relative;
+        row-gap: 20px;
+        margin-top: 0;
+    }
+
+    #textBox3{
+        width: auto;
+        left: 0%;
+        border-color: #16ff00;
+        border-radius: 2px; 
+        border-width: 5px;
+        position: relative;
+        row-gap: 20px;
+        margin-top: 0;
+    }
+
+    #textBox4{
+        width: auto;
+        left: 0%;
+        border-color: #16ff00;
+        border-radius: 2px; 
+        border-width: 5px;
+        position: relative;
+        row-gap: 20px;
+        margin-top: 0;
+    }
+
+    .icon{
+        padding-left: 15px;
+    }
+
+    #Eye2 {
+        position: absolute;
+        top: 410vh;
+        left: 10vw;
+    }
+    
+    #ClosedEye2 {
+        position: absolute;
+        top: 445vh;
+        left: 80vw;
+    }
+    
+    #DropEye2 {
+        position: absolute;
+        top: 480vh;
+        left: 5vw;
+    }
 }
-	*/

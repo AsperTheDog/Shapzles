@@ -5,7 +5,8 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/main.css" rel="stylesheet" />
-        <link rel="preload" href="img/background.png" as="image"/>
+        <!--<link rel="preload" href="img/background.png" as="image"/> -->
+        <link rel="icon" href="img/icon.png">
     </head>    
 
     <body>
@@ -20,24 +21,32 @@
 
                 <div id="fillBox" class="glowBox"> 
                     <div id="textBox1" class="glow2">
-                        Shapzels is a collaborative puzzle game where three or more players cooperate to solve the puzzle in front of them. 
-                        <br>
-                        <br>
-                        Shapzels has been modeled after how Prison Island designs their action rooms, and acts as a digital prototype for a potential addition to their repertoire of challenging action rooms. 
+                        Shapzels is a collaborative puzzle game where three or more players cooperate to solve puzzles of shapes.
+
                     </div>
                     <div id="textBox2" class="glow1">
-                        The best way to experience the game is to play it with no prior experience, as that is how Prison Islands action rooms function. But if you are curious, this is how the game works.
+                        Shapzels is a Prison Island inspired game and a digital prototype of an action room. The best way to experience the game is to try several times until you and your group together can decipher the hardest shapes and gain the maximum amount of points.
                     </div>
+                    <img src="img/Eye.png" id="TextEye" class="GlowSymbols">
                     <div id="textBox3" class="glow2">
                         One player acts as the guide, where they are presented with a symbol and the option to input a letter and a number. The other two players are presented with three or more symbols with an identification of either a letter or a number for each. They then have to communicate with each other and the guide to combine their two symbols so that it matches the one the guide has.
-                    </div>              
+                    </div>  
+                    <img src="img/ClosedEye.png" id="TextEyeClosed" class="GlowSymbols">            
                     <div id="textBox4" class="glow1">
                         We performed tests of Shapzels with collaboration from NTI Gymnasiet Kronhus, if you are curious on how the game looks from a player perspective, <a href="https://www.instagram.com/p/CyV3LHKokJU/?img_index=1" target="_blank">click here!</a> 
                         <br>
                         <br>
-                        While simple in practice, this game can be challenging. So be prepared!
+                        While simple in practice, this game will challenge your group in your ability to communicate and understand each other when dealing with abstract and confusing symbols. Good luck!
                     </div>
                 </div>
+                
+                <img src="img/Eye.png" id="Eye" class="GlowSymbols">
+                <img src="img/ClosedEye.png" id="ClosedEye" class="GlowSymbols">
+                <img src="img/DropEye.png" id="DropEye" class="GlowSymbols">
+
+                <img src="img/Eye.png" id="Eye2" class="GlowSymbols">
+                <img src="img/ClosedEye.png" id="ClosedEye2" class="GlowSymbols">
+                <img src="img/DropEye.png" id="DropEye2" class="GlowSymbols">
 
             <!--Image slider-->
             <br>
@@ -46,28 +55,23 @@
             <div class="slideshow-container">
 
                 <div class="mySlides fade">
-                  <div class="numbertext">1 / 4</div>
+                  <div class="numbertext">1 / 3</div>
                   <img src="img/slider1.png" style="width:100%">
-                  <div class="text">Before the game has started / Game is paused</div>
+                  <div class="text">View for player A</div>
                 </div>
                 
                 <div class="mySlides fade">
-                    <div class="numbertext">2 / 4</div>
+                    <div class="numbertext">2 / 3</div>
                     <img src="img/slider2.png" style="width:100%">
-                    <div class="text">View for player A</div>
+                    <div class="text">View for player B</div>
                   </div>
 
                 <div class="mySlides fade">
-                  <div class="numbertext">3 / 4</div>
+                  <div class="numbertext">3 / 3</div>
                   <img src="img/slider3.png" style="width:100%">
-                  <div class="text">View for player B</div>
-                </div>
-                
-                <div class="mySlides fade">
-                  <div class="numbertext">4 / 4</div>
-                  <img src="img/slider4.png" style="width:100%">
                   <div class="text">View for the Guide</div>
                 </div>
+                
                 
                 <a class="prev" onclick="plusSlides(-1)">❮</a>
                 <a class="next" onclick="plusSlides(1)">❯</a>
@@ -79,7 +83,6 @@
                   <span class="dot" onclick="currentSlide(1)"></span> 
                   <span class="dot" onclick="currentSlide(2)"></span> 
                   <span class="dot" onclick="currentSlide(3)"></span> 
-                  <span class="dot" onclick="currentSlide(4)"></span> 
                 </div>
                 
                 <script>
