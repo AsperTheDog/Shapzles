@@ -186,7 +186,7 @@ func onGameRunStateChanged(value: bool):
 		blinkTween.pause()
 	else:
 		blinkTween.play()
-	$SolutionContainer/SolutionPanel/margin/SolutionTexture.visible = value
+	$SolutionContainer/SolutionPanel/margin/SolutionTexture.visible = value or Game.remainingSeconds == Game.countdownSeconds
 	if value:
 		recoverFocus()
 

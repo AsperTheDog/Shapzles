@@ -118,7 +118,7 @@ func onGameRunStateChanged(value: bool):
 	else:
 		blinkTween.play()
 	for symbol in symbols:
-		symbol.get_node("Margin/VBox/SymbolContainer/Symbol").visible = value
+		symbol.get_node("Margin/VBox/SymbolContainer/Symbol").visible = value or Game.remainingSeconds == Game.countdownSeconds
 
 
 func onWrongAnswer():

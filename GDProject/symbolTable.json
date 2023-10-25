@@ -9,7 +9,7 @@
 					"P3SolutionIndex": 0
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg"],
-				"P3": ["PuzzleATriangle.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
+				"P3": ["PuzzleATRiangle.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
 				"index": "B",
 				"enabled": false
 			},
@@ -20,7 +20,7 @@
 					"P3SolutionIndex": 0
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleASquare.svg", "PuzzleDSmallCircle.svg"],
-				"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleBX.svg"],
+				"P3": ["PuzzleATRiangle.svg", "PuzzleATRiangleFlipped.svg", "PuzzleBX.svg"],
 				"index": "C",
 				"enabled": false
 			}, 
@@ -31,7 +31,7 @@
 					"P3SolutionIndex": 0
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg", "PuzzleBPlus.svg"],
-				"P3": ["PuzzleATriangle.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg", "PuzzleASquare.svg"],
+				"P3": ["PuzzleATRiangle.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg", "PuzzleASquare.svg"],
 				"index": "E",
 				"enabled": false
 			},
@@ -42,7 +42,7 @@
 					"P3SolutionIndex": 0
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleDSmallCircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg"],
-				"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
+				"P3": ["PuzzleATRiangle.svg", "PuzzleATRiangleFlipped.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
 				"index": "O3",
 				"enabled": false
 			},
@@ -98,8 +98,8 @@
 					"P2SolutionIndex": 0,
 					"P3SolutionIndex": 0
 				},
-				"P2": ["PuzzleACircle.svg", "PuzzleATriangle.svg", "PuzzleASquare.svg"],
-				"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleASquare.svg"],
+				"P2": ["PuzzleACircle.svg", "PuzzleATRiangle.svg", "PuzzleASquare.svg"],
+				"P3": ["PuzzleATRiangle.svg", "PuzzleATRiangleFlipped.svg", "PuzzleASquare.svg"],
 				"index": "A",
 				"enabled": false
 			},
@@ -143,7 +143,7 @@
 					"P3SolutionIndex": 3
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleDSmallCircle.svg", "PuzzleASquare.svg", "PuzzleBX.svg"],
-				"P3": ["PuzzleATriangle.svg", "PuzzleATriangleFlipped.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
+				"P3": ["PuzzleATRiangle.svg", "PuzzleATRiangleFlipped.svg", "PuzzleBRectangle.svg", "PuzzleBPlus.svg"],
 				"index": "O2",
 				"enabled": true
 			}, 
@@ -200,7 +200,7 @@
 					"P3SolutionIndex": 0
 				},
 				"P2": ["PuzzleACircle.svg", "PuzzleDSmallCircle.svg", "PuzzleDOval.svg"],
-				"P3": ["PuzzleDTopLeftTriangle.svg", "PuzzleATriangle.svg", "PuzzleDPointyTriangle.svg"],
+				"P3": ["PuzzleDTopLeftTriangle.svg", "PuzzleATRiangle.svg", "PuzzleDPointyTriangle.svg"],
 				"index": "D",
 				"enabled": false
 			},
@@ -239,7 +239,7 @@
 			}, 
 			{
 				"P1": {
-					"SymbolFile": "PuzzleI2Solution.svg",
+					"SymbolFile": "PuzzleI1Solution.svg",
 					"P2SolutionIndex": 2,
 					"P3SolutionIndex": 0
 				},
